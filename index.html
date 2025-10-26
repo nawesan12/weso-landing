@@ -13,12 +13,15 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;900&display=swap"
+            href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
             rel="stylesheet"
         />
 
         <style>
             :root {
+                --font-body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+                --font-display: "Space Grotesk", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+                --font-serif: "DM Serif Display", "Times New Roman", serif;
                 --color-bg: #060606;
                 --color-surface: rgba(255, 255, 255, 0.04);
                 --color-surface-strong: rgba(255, 255, 255, 0.08);
@@ -27,7 +30,7 @@
                 --color-border: rgba(248, 245, 240, 0.18);
                 --color-accent: #00c6ff;
                 --color-accent-strong: #0c89ff;
-                --container-width: min(1120px, calc(100% - 3rem));
+                --container-width: min(1140px, calc(100% - 3rem));
                 --cursor-size: 12px;
                 --cursor-size-hover: 58px;
                 --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.35);
@@ -46,7 +49,8 @@
 
             body {
                 margin: 0;
-                font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+                font-family: var(--font-body);
+                font-feature-settings: "liga", "kern";
                 background-color: var(--color-bg);
                 color: var(--color-text);
                 min-height: 100vh;
@@ -65,8 +69,28 @@
                 display: block;
             }
 
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            .btn,
+            .btn-outline,
+            .section-label,
+            .eyebrow,
+            .ticker-track,
+            .case-label,
+            .process-step h3,
+            .labs-card h4,
+            .insight-tag,
+            .footer-links strong,
+            .footer-contact strong {
+                font-family: var(--font-display);
+            }
+
             .font-serif {
-                font-family: "DM Serif Display", "Times New Roman", serif;
+                font-family: var(--font-serif);
             }
 
             .container {
@@ -135,7 +159,8 @@
                 font-weight: 600;
                 font-size: 0.98rem;
                 letter-spacing: 0.02em;
-                transition: all 0.3s ease;
+                transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease, background 0.3s ease,
+                    border-color 0.3s ease;
                 cursor: pointer;
                 border: 1px solid transparent;
             }
@@ -167,8 +192,9 @@
 
             .hero {
                 position: relative;
-                padding: 8rem 0 6rem;
+                padding: clamp(6rem, 8vw + 2rem, 8rem) 0 clamp(5rem, 6vw + 1rem, 6.5rem);
                 overflow: hidden;
+                isolation: isolate;
             }
 
             .hero::before,
@@ -187,12 +213,14 @@
                 background: rgba(0, 198, 255, 0.28);
                 top: 8%;
                 left: -10%;
+                animation: pulseGlow 18s ease-in-out infinite;
             }
 
             .hero::after {
                 background: rgba(255, 255, 255, 0.08);
                 bottom: -10%;
                 right: -5%;
+                animation: pulseGlow 22s ease-in-out infinite;
             }
 
             .hero-grid {
@@ -200,8 +228,8 @@
                 z-index: 1;
                 display: grid;
                 grid-template-columns: repeat(2, minmax(0, 1fr));
-                gap: 4rem;
-                align-items: end;
+                gap: clamp(2.5rem, 5vw, 4rem);
+                align-items: center;
             }
 
             .eyebrow {
@@ -222,6 +250,7 @@
                 margin: 0 0 1.5rem;
                 font-size: clamp(3rem, 4vw + 1rem, 5rem);
                 line-height: 1.05;
+                letter-spacing: -0.01em;
             }
 
             .hero p {
@@ -229,19 +258,20 @@
                 font-size: 1.08rem;
                 max-width: 38ch;
                 margin-bottom: 2rem;
+                line-height: 1.7;
             }
 
             .hero-actions {
                 display: flex;
                 flex-wrap: wrap;
                 gap: 1rem;
-                margin-bottom: 3rem;
+                margin-bottom: clamp(2rem, 4vw, 3rem);
             }
 
             .metrics {
                 display: grid;
                 grid-template-columns: repeat(3, minmax(0, 1fr));
-                gap: 1.5rem;
+                gap: clamp(1.25rem, 3vw, 1.8rem);
             }
 
             .metric-card {
@@ -252,6 +282,14 @@
                 box-shadow: var(--shadow-soft);
                 backdrop-filter: blur(16px);
                 min-height: 160px;
+                transition: transform 0.35s ease, border-color 0.35s ease;
+                will-change: transform;
+            }
+
+            .metric-card:hover,
+            .metric-card:focus-within {
+                transform: translateY(-6px);
+                border-color: rgba(0, 198, 255, 0.35);
             }
 
             .metric-card strong {
@@ -287,6 +325,8 @@
                 object-fit: cover;
                 height: 260px;
                 width: 100%;
+                animation: floatSoftly 11s ease-in-out infinite;
+                will-change: transform;
             }
 
             .hero-visual p {
@@ -308,6 +348,14 @@
                 background: rgba(255, 255, 255, 0.04);
                 font-size: 0.88rem;
                 color: var(--color-text);
+                transition: transform 0.3s ease, border-color 0.3s ease;
+                will-change: transform;
+            }
+
+            .tag:hover,
+            .tag:focus {
+                transform: translateY(-2px);
+                border-color: rgba(0, 198, 255, 0.6);
             }
 
             .ticker {
@@ -349,6 +397,26 @@
                 font-size: 1.05rem;
                 letter-spacing: 0.12em;
                 text-transform: uppercase;
+                will-change: transform;
+            }
+
+            [data-animate] {
+                opacity: 0;
+                transform: translate3d(0, var(--animate-offset, 24px), 0);
+                transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+                transition-delay: var(--animate-delay, 0s);
+                will-change: opacity, transform;
+            }
+
+            [data-animate="fade-in"] {
+                --animate-offset: 0;
+                transform: scale(0.98);
+            }
+
+            [data-animate].is-visible {
+                opacity: 1;
+                transform: none;
             }
 
             @keyframes marquee {
@@ -360,8 +428,35 @@
                 }
             }
 
+            @keyframes pulseGlow {
+                0% {
+                    opacity: 0.35;
+                    transform: scale(0.92);
+                }
+                50% {
+                    opacity: 0.6;
+                    transform: scale(1.04);
+                }
+                100% {
+                    opacity: 0.4;
+                    transform: scale(0.96);
+                }
+            }
+
+            @keyframes floatSoftly {
+                0% {
+                    transform: translate3d(0, 0, 0);
+                }
+                50% {
+                    transform: translate3d(0, -12px, 0);
+                }
+                100% {
+                    transform: translate3d(0, 0, 0);
+                }
+            }
+
             section {
-                padding: 6rem 0;
+                padding: clamp(4rem, 6vw + 1rem, 6rem) 0;
             }
 
             .section-header {
@@ -425,12 +520,14 @@
                 display: flex;
                 flex-direction: column;
                 gap: 1.6rem;
-                transition: transform 0.3s ease, border-color 0.3s ease;
+                transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+                will-change: transform;
             }
 
             .service-card:hover {
-                transform: translateY(-6px);
+                transform: translateY(-8px);
                 border-color: rgba(0, 198, 255, 0.65);
+                box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
             }
 
             .service-icon {
@@ -486,6 +583,8 @@
                 justify-content: flex-end;
                 padding: 2rem;
                 color: var(--color-text);
+                transition: transform 0.45s ease, border-color 0.45s ease, box-shadow 0.45s ease;
+                will-change: transform;
             }
 
             .case-card::before {
@@ -513,6 +612,13 @@
 
             .case-card:hover::before {
                 transform: scale(1.08);
+            }
+
+            .case-card:hover,
+            .case-card:focus-within {
+                transform: translateY(-8px);
+                border-color: rgba(0, 198, 255, 0.4);
+                box-shadow: 0 28px 64px rgba(0, 0, 0, 0.48);
             }
 
             .case-content {
@@ -555,6 +661,25 @@
                 margin-top: 0.5rem;
                 font-weight: 600;
                 color: var(--color-accent);
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                transition: gap 0.3s ease, color 0.3s ease;
+            }
+
+            .case-link span {
+                display: inline-block;
+                transition: transform 0.3s ease;
+            }
+
+            .case-link:hover,
+            .case-link:focus {
+                color: var(--color-accent-strong);
+                gap: 0.65rem;
+            }
+
+            .case-link:hover span,
+            .case-link:focus span {
+                transform: translateX(4px);
             }
 
             .process-grid {
@@ -650,6 +775,15 @@
                 border: 1px solid rgba(255, 255, 255, 0.18);
                 background: rgba(6, 6, 6, 0.6);
                 backdrop-filter: blur(12px);
+                transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+                will-change: transform;
+            }
+
+            .labs-card:hover,
+            .labs-card:focus-within {
+                transform: translateY(-6px);
+                border-color: rgba(0, 198, 255, 0.35);
+                background: rgba(6, 6, 6, 0.75);
             }
 
             .labs-card h4 {
@@ -678,6 +812,15 @@
                 gap: 1.5rem;
                 position: relative;
                 overflow: hidden;
+                transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+                will-change: transform;
+            }
+
+            .testimonial-card:hover,
+            .testimonial-card:focus-within {
+                transform: translateY(-6px);
+                border-color: rgba(0, 198, 255, 0.3);
+                box-shadow: 0 24px 52px rgba(0, 0, 0, 0.42);
             }
 
             .testimonial-card::before {
@@ -735,11 +878,14 @@
                 display: flex;
                 flex-direction: column;
                 gap: 1.2rem;
-                transition: transform 0.3s ease;
+                transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+                will-change: transform;
             }
 
             .insight-card:hover {
                 transform: translateY(-6px);
+                border-color: rgba(0, 198, 255, 0.32);
+                box-shadow: 0 20px 44px rgba(0, 0, 0, 0.42);
             }
 
             .insight-tag {
@@ -908,6 +1054,30 @@
                 }
             }
 
+            @media (max-width: 900px) {
+                :root {
+                    --container-width: min(100%, calc(100% - 2.25rem));
+                }
+
+                .hero-visual {
+                    padding: 2.4rem;
+                    min-height: 480px;
+                }
+
+                .hero-visual img {
+                    height: 220px;
+                }
+
+                .process-grid {
+                    grid-template-columns: 1fr;
+                    gap: 3rem;
+                }
+
+                .labs-wrapper {
+                    gap: 2.2rem;
+                }
+            }
+
             @media (max-width: 720px) {
                 body {
                     cursor: default;
@@ -957,6 +1127,97 @@
                 .footer-bottom {
                     flex-direction: column;
                     align-items: flex-start;
+                    gap: 0.75rem;
+                }
+            }
+
+            @media (max-width: 600px) {
+                :root {
+                    --container-width: min(100%, calc(100% - 1.8rem));
+                }
+
+                .site-header {
+                    padding-block: 0.85rem;
+                }
+
+                .hero h1 {
+                    font-size: clamp(2.5rem, 7vw + 1rem, 3.4rem);
+                }
+
+                .hero p {
+                    font-size: 1rem;
+                }
+
+                .metrics {
+                    gap: 1.25rem;
+                }
+
+                .hero-visual {
+                    padding: 2.1rem;
+                }
+
+                .hero-visual img {
+                    height: 200px;
+                }
+
+                .section-title {
+                    font-size: clamp(2rem, 6vw + 1rem, 3rem);
+                }
+
+                .ticker-track {
+                    gap: 1.6rem;
+                    font-size: 0.9rem;
+                    letter-spacing: 0.08em;
+                }
+
+                .cta-wrapper {
+                    padding: 3rem 2.2rem;
+                }
+
+                .footer-bottom {
+                    font-size: 0.8rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                :root {
+                    --container-width: calc(100% - 1.5rem);
+                }
+
+                .hero {
+                    padding: 5rem 0 3.5rem;
+                }
+
+                .hero-actions {
+                    gap: 0.75rem;
+                }
+
+                .hero-visual {
+                    gap: 1.4rem;
+                }
+
+                .hero-visual img {
+                    height: 180px;
+                }
+
+                .metric-card {
+                    padding: 1.3rem;
+                }
+
+                .labs-wrapper {
+                    padding: 2rem;
+                }
+
+                .cta-wrapper {
+                    padding: 2.5rem 1.8rem;
+                }
+
+                .cta-wrapper p {
+                    font-size: 1rem;
+                }
+
+                .site-footer {
+                    padding: 2.5rem 0;
                 }
             }
 
@@ -968,6 +1229,16 @@
                     animation-iteration-count: 1 !important;
                     transition-duration: 0.01ms !important;
                     scroll-behavior: auto !important;
+                }
+
+                [data-animate] {
+                    opacity: 1 !important;
+                    transform: none !important;
+                    transition: none !important;
+                }
+
+                .ticker-track {
+                    animation: none;
                 }
             }
         </style>
@@ -999,42 +1270,49 @@
             <section class="hero" id="inicio">
                 <div class="container hero-grid">
                     <div>
-                        <span class="eyebrow" data-cursor-hover>Estudio Global · 100% Independiente</span>
-                        <h1 class="font-serif">
+                        <span
+                            class="eyebrow"
+                            data-cursor-hover
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.05s;"
+                        >
+                            Estudio Global · 100% Independiente
+                        </span>
+                        <h1 class="font-serif" data-animate="fade-up" style="--animate-delay: 0.12s;">
                             Diseñamos experiencias que convierten marcas ambiciosas en fenómenos culturales.
                         </h1>
-                        <p>
+                        <p data-animate="fade-up" style="--animate-delay: 0.2s;">
                             Desde Mar del Plata hacia el mundo, construimos universos de marca, productos digitales y
                             campañas integrales que multiplican resultados. Cada proyecto nace de la estrategia y se
                             lanza con creatividad sin límites.
                         </p>
-                        <div class="hero-actions">
+                        <div class="hero-actions" data-animate="fade-up" style="--animate-delay: 0.28s;">
                             <a href="#contacto" class="btn" data-cursor-hover data-cursor-pointer>Agenda una sesión estratégica</a>
                             <a href="#casos" class="btn-outline" data-cursor-hover data-cursor-pointer>Explorar portafolio</a>
                         </div>
-                        <div class="metrics">
-                            <article class="metric-card" data-cursor-hover>
+                        <div class="metrics" data-animate="fade-up" style="--animate-delay: 0.36s;">
+                            <article class="metric-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.42s;">
                                 <strong>+120</strong>
                                 <span>Proyectos lanzados en los últimos 4 años.</span>
                             </article>
-                            <article class="metric-card" data-cursor-hover>
+                            <article class="metric-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.48s;">
                                 <strong>92%</strong>
                                 <span>Clientes que renuevan con Weso cada año.</span>
                             </article>
-                            <article class="metric-card" data-cursor-hover>
+                            <article class="metric-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.54s;">
                                 <strong>4.9/5</strong>
                                 <span>Satisfacción promedio en NPS y reseñas globales.</span>
                             </article>
                         </div>
                     </div>
-                    <aside class="hero-visual" data-cursor-hover>
+                    <aside class="hero-visual" data-cursor-hover data-animate="fade-in" style="--animate-delay: 0.32s;">
                         <img src="/banner.webp" alt="Equipo creativo de Weso trabajando" loading="lazy" />
                         <p>
                             Somos estrategas, diseñadores, storytellers y tecnólogos. Trabajamos como un equipo híbrido
                             junto a tu marca para diseñar soluciones que nacen en la data y viven en el corazón de las
                             personas.
                         </p>
-                        <div class="tag-list">
+                        <div class="tag-list" data-animate="fade-up" style="--animate-delay: 0.46s;">
                             <span class="tag" data-cursor-hover>Branding Vivo</span>
                             <span class="tag" data-cursor-hover>Productos Interactivos</span>
                             <span class="tag" data-cursor-hover>Campañas Multiformato</span>
@@ -1046,7 +1324,7 @@
 
             <!-- ===== TICKER ===== -->
             <section class="ticker" aria-label="Servicios destacados de Weso">
-                <div class="ticker-track">
+                <div class="ticker-track" data-animate="fade-up" style="--animate-delay: 0.1s;">
                     <span data-cursor-hover>Estrategia de Marca</span>
                     <span data-cursor-hover>•</span>
                     <span data-cursor-hover>Arquitectura Digital</span>
@@ -1072,7 +1350,7 @@
             <!-- ===== CLIENTS ===== -->
             <section id="clientes">
                 <div class="container">
-                    <div class="section-header">
+                    <div class="section-header" data-animate="fade-up">
                         <span class="section-label">Confían en nosotros</span>
                         <h2 class="section-title font-serif">Socios creativos de líderes que marcan la diferencia.</h2>
                         <p class="section-description">
@@ -1080,13 +1358,13 @@
                             se transforman para conquistar nuevas audiencias.
                         </p>
                     </div>
-                    <div class="clients-grid">
-                        <div class="client-card" data-cursor-hover>Atlas Bank</div>
-                        <div class="client-card" data-cursor-hover>Nova Health</div>
-                        <div class="client-card" data-cursor-hover>Arq Labs</div>
-                        <div class="client-card" data-cursor-hover>Lumina AI</div>
-                        <div class="client-card" data-cursor-hover>Blue Harbor</div>
-                        <div class="client-card" data-cursor-hover>Terra Foods</div>
+                    <div class="clients-grid" data-animate="fade-up" style="--animate-delay: 0.12s;">
+                        <div class="client-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.16s;">Atlas Bank</div>
+                        <div class="client-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.2s;">Nova Health</div>
+                        <div class="client-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.24s;">Arq Labs</div>
+                        <div class="client-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.28s;">Lumina AI</div>
+                        <div class="client-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.32s;">Blue Harbor</div>
+                        <div class="client-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.36s;">Terra Foods</div>
                     </div>
                 </div>
             </section>
@@ -1094,7 +1372,7 @@
             <!-- ===== SERVICES ===== -->
             <section id="servicios">
                 <div class="container">
-                    <div class="section-header">
+                    <div class="section-header" data-animate="fade-up">
                         <span class="section-label">Servicios</span>
                         <h2 class="section-title font-serif">Un equipo integral para cada etapa del crecimiento.</h2>
                         <p class="section-description">
@@ -1102,8 +1380,8 @@
                             para escalar. Cada servicio es un sprint creativo respaldado por data y foco en resultados.
                         </p>
                     </div>
-                    <div class="services-grid">
-                        <article class="service-card" data-cursor-hover>
+                    <div class="services-grid" data-animate="fade-up" style="--animate-delay: 0.12s;">
+                        <article class="service-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.18s;">
                             <span class="service-icon">✨</span>
                             <div>
                                 <h3>Branding & Identidad</h3>
@@ -1118,7 +1396,7 @@
                                 <li>Design systems dinámicos</li>
                             </ul>
                         </article>
-                        <article class="service-card" data-cursor-hover>
+                        <article class="service-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.24s;">
                             <span class="service-icon">🧠</span>
                             <div>
                                 <h3>Producto & Experiencia Digital</h3>
@@ -1133,7 +1411,7 @@
                                 <li>Desarrollo web full-stack</li>
                             </ul>
                         </article>
-                        <article class="service-card" data-cursor-hover>
+                        <article class="service-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.3s;">
                             <span class="service-icon">🚀</span>
                             <div>
                                 <h3>Contenido & Growth</h3>
@@ -1155,7 +1433,7 @@
             <!-- ===== CASE STUDIES ===== -->
             <section id="casos">
                 <div class="container">
-                    <div class="section-header">
+                    <div class="section-header" data-animate="fade-up">
                         <span class="section-label">Casos destacados</span>
                         <h2 class="section-title font-serif">Resultados tangibles que transforman industrias.</h2>
                         <p class="section-description">
@@ -1163,8 +1441,8 @@
                             creatividad y ejecución en sincronía.
                         </p>
                     </div>
-                    <div class="cases-grid">
-                        <article class="case-card" data-image="tech" data-cursor-hover>
+                    <div class="cases-grid" data-animate="fade-up" style="--animate-delay: 0.12s;">
+                        <article class="case-card" data-image="tech" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.18s;">
                             <div class="case-content">
                                 <span class="case-label">SaaS · Serie B</span>
                                 <h3 class="case-title">Lumina OS</h3>
@@ -1178,7 +1456,7 @@
                                 </a>
                             </div>
                         </article>
-                        <article class="case-card" data-image="finance" data-cursor-hover>
+                        <article class="case-card" data-image="finance" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.24s;">
                             <div class="case-content">
                                 <span class="case-label">Fintech · LATAM</span>
                                 <h3 class="case-title">Atlas Bank</h3>
@@ -1192,7 +1470,7 @@
                                 </a>
                             </div>
                         </article>
-                        <article class="case-card" data-image="food" data-cursor-hover>
+                        <article class="case-card" data-image="food" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.3s;">
                             <div class="case-content">
                                 <span class="case-label">Consumo masivo</span>
                                 <h3 class="case-title">Terra Foods</h3>
@@ -1213,7 +1491,7 @@
             <!-- ===== PROCESS ===== -->
             <section id="metodologia">
                 <div class="container process-grid">
-                    <div>
+                    <div data-animate="fade-up">
                         <div class="section-header">
                             <span class="section-label">Metodología Weso</span>
                             <h2 class="section-title font-serif">Equipos integrados, velocidad y claridad total.</h2>
@@ -1222,31 +1500,40 @@
                                 métricas compartidas para acelerar decisiones y lanzar con precisión.
                             </p>
                         </div>
-                        <a href="#contacto" class="btn-outline" data-cursor-hover data-cursor-pointer>Solicitar blueprint personalizado</a>
+                        <a
+                            href="#contacto"
+                            class="btn-outline"
+                            data-cursor-hover
+                            data-cursor-pointer
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.12s;"
+                        >
+                            Solicitar blueprint personalizado
+                        </a>
                     </div>
-                    <ol class="process-list">
-                        <li class="process-step" data-step="01" data-cursor-hover>
+                    <ol class="process-list" data-animate="fade-up" style="--animate-delay: 0.18s;">
+                        <li class="process-step" data-step="01" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.22s;">
                             <h3>Descubrimiento inmersivo</h3>
                             <p>
                                 Workshops, entrevistas y research para mapear oportunidades, audiencias y diferenciales
                                 competitivos.
                             </p>
                         </li>
-                        <li class="process-step" data-step="02" data-cursor-hover>
+                        <li class="process-step" data-step="02" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.28s;">
                             <h3>Strategic Sprint</h3>
                             <p>
                                 Definimos narrativa, UX blueprint y roadmap creativo con foco en KPIs y quick wins
                                 accionables.
                             </p>
                         </li>
-                        <li class="process-step" data-step="03" data-cursor-hover>
+                        <li class="process-step" data-step="03" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.34s;">
                             <h3>Producción & activación</h3>
                             <p>
                                 Diseño, desarrollo y contenidos integrados listos para salir al mercado y medir impacto
                                 desde el día cero.
                             </p>
                         </li>
-                        <li class="process-step" data-step="04" data-cursor-hover>
+                        <li class="process-step" data-step="04" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.4s;">
                             <h3>Optimización continua</h3>
                             <p>
                                 Iteramos con data en vivo, experimentos y automatizaciones para seguir escalando tu
@@ -1260,8 +1547,8 @@
             <!-- ===== WESO LABS ===== -->
             <section class="labs-section" id="labs">
                 <div class="container">
-                    <div class="labs-wrapper">
-                        <div class="labs-text">
+                    <div class="labs-wrapper" data-animate="fade-up">
+                        <div class="labs-text" data-animate="fade-up" style="--animate-delay: 0.08s;">
                             <span class="section-label">Weso Labs</span>
                             <h2 class="section-title font-serif">Innovación aplicada en IA, Web3 y experiencias inmersivas.</h2>
                             <p>
@@ -1269,18 +1556,27 @@
                                 llevamos a las marcas con las que trabajamos. Desde asistentes de IA entrenados en tus
                                 datos hasta activaciones phygital con realidad aumentada.
                             </p>
-                            <a href="#contacto" class="btn" data-cursor-hover data-cursor-pointer>Probar un piloto con Weso Labs</a>
+                            <a
+                                href="#contacto"
+                                class="btn"
+                                data-cursor-hover
+                                data-cursor-pointer
+                                data-animate="fade-up"
+                                style="--animate-delay: 0.16s;"
+                            >
+                                Probar un piloto con Weso Labs
+                            </a>
                         </div>
-                        <div class="labs-highlights">
-                            <article class="labs-card" data-cursor-hover>
+                        <div class="labs-highlights" data-animate="fade-up" style="--animate-delay: 0.18s;">
+                            <article class="labs-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.24s;">
                                 <h4>Experiencias activadas por IA</h4>
                                 <p>Personalizamos cada punto del journey con contenido dinámico y asistentes conversacionales.</p>
                             </article>
-                            <article class="labs-card" data-cursor-hover>
+                            <article class="labs-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.3s;">
                                 <h4>Digital twins & eventos híbridos</h4>
                                 <p>Diseñamos entornos inmersivos para lanzamientos globales y comunidades 24/7.</p>
                             </article>
-                            <article class="labs-card" data-cursor-hover>
+                            <article class="labs-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.36s;">
                                 <h4>Growth automation</h4>
                                 <p>Automatizamos campañas, reporting y ciclos de iteración para escalar sin fricción.</p>
                             </article>
@@ -1292,7 +1588,7 @@
             <!-- ===== TESTIMONIALS ===== -->
             <section id="testimonios">
                 <div class="container">
-                    <div class="section-header">
+                    <div class="section-header" data-animate="fade-up">
                         <span class="section-label">Testimonios</span>
                         <h2 class="section-title font-serif">Historias de crecimiento contadas por nuestros socios.</h2>
                         <p class="section-description">
@@ -1300,8 +1596,8 @@
                             de trabajar y en los resultados que entregamos.
                         </p>
                     </div>
-                    <div class="testimonials-grid">
-                        <article class="testimonial-card" data-cursor-hover>
+                    <div class="testimonials-grid" data-animate="fade-up" style="--animate-delay: 0.12s;">
+                        <article class="testimonial-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.18s;">
                             <p class="testimonial-text">
                                 “Weso se incrustó en nuestro equipo con una velocidad increíble. En tres meses lanzamos un
                                 nuevo posicionamiento y una web que duplicó la generación de leads calificados.”
@@ -1314,7 +1610,7 @@
                                 </div>
                             </div>
                         </article>
-                        <article class="testimonial-card" data-cursor-hover>
+                        <article class="testimonial-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.24s;">
                             <p class="testimonial-text">
                                 “Desde el primer workshop entendieron nuestra visión. Integraron data, creatividad y
                                 performance para lanzar campañas globales que triplicaron el ROI.”
@@ -1327,7 +1623,7 @@
                                 </div>
                             </div>
                         </article>
-                        <article class="testimonial-card" data-cursor-hover>
+                        <article class="testimonial-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.3s;">
                             <p class="testimonial-text">
                                 “Su enfoque colaborativo y la obsesión por el detalle nos permitieron acelerar la
                                 transformación digital y crear experiencias memorables para nuestros clientes.”
@@ -1347,7 +1643,7 @@
             <!-- ===== INSIGHTS ===== -->
             <section id="insights">
                 <div class="container">
-                    <div class="section-header">
+                    <div class="section-header" data-animate="fade-up">
                         <span class="section-label">Insights</span>
                         <h2 class="section-title font-serif">Ideas frescas para liderar el futuro de tu marca.</h2>
                         <p class="section-description">
@@ -1355,8 +1651,8 @@
                             recibe antes que nadie nuestras novedades.
                         </p>
                     </div>
-                    <div class="insights-grid">
-                        <article class="insight-card" data-cursor-hover>
+                    <div class="insights-grid" data-animate="fade-up" style="--animate-delay: 0.12s;">
+                        <article class="insight-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.18s;">
                             <span class="insight-tag">Guía</span>
                             <h3>Cómo construir una plataforma de marca con IA generativa</h3>
                             <p>
@@ -1368,7 +1664,7 @@
                                 <span aria-hidden="true">→</span>
                             </a>
                         </article>
-                        <article class="insight-card" data-cursor-hover>
+                        <article class="insight-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.24s;">
                             <span class="insight-tag">Framework</span>
                             <h3>Playbook de lanzamientos de alto impacto en 45 días</h3>
                             <p>
@@ -1380,7 +1676,7 @@
                                 <span aria-hidden="true">→</span>
                             </a>
                         </article>
-                        <article class="insight-card" data-cursor-hover>
+                        <article class="insight-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.3s;">
                             <span class="insight-tag">Reporte</span>
                             <h3>El futuro del retail híbrido en LATAM</h3>
                             <p>
@@ -1399,15 +1695,24 @@
             <!-- ===== CTA ===== -->
             <section class="cta-section" id="contacto">
                 <div class="container">
-                    <div class="cta-wrapper">
-                        <h2 class="font-serif">¿Listo para construir la próxima historia icónica?</h2>
-                        <p>
+                    <div class="cta-wrapper" data-animate="fade-up">
+                        <h2 class="font-serif" data-animate="fade-up" style="--animate-delay: 0.08s;">¿Listo para construir la próxima historia icónica?</h2>
+                        <p data-animate="fade-up" style="--animate-delay: 0.16s;">
                             Cuéntanos sobre tu desafío y diseñaremos una propuesta a medida en menos de 48 horas. Somos
                             el partner creativo y tecnológico que acompaña a equipos con ambición global.
                         </p>
-                        <div class="cta-actions">
-                            <a href="mailto:contacto@weso.ar" class="btn" data-cursor-hover data-cursor-pointer>contacto@weso.ar</a>
-                            <a href="https://cal.com/" class="btn-outline" target="_blank" rel="noreferrer" data-cursor-hover data-cursor-pointer>
+                        <div class="cta-actions" data-animate="fade-up" style="--animate-delay: 0.24s;">
+                            <a href="mailto:contacto@weso.ar" class="btn" data-cursor-hover data-cursor-pointer data-animate="fade-up" style="--animate-delay: 0.28s;">contacto@weso.ar</a>
+                            <a
+                                href="https://cal.com/"
+                                class="btn-outline"
+                                target="_blank"
+                                rel="noreferrer"
+                                data-cursor-hover
+                                data-cursor-pointer
+                                data-animate="fade-up"
+                                style="--animate-delay: 0.32s;"
+                            >
                                 Reservar una llamada
                             </a>
                         </div>
@@ -1419,7 +1724,7 @@
         <!-- ===== FOOTER ===== -->
         <footer class="site-footer">
             <div class="container">
-                <div class="footer-content">
+                <div class="footer-content" data-animate="fade-up">
                     <div class="footer-brand">
                         <img src="/image.png" alt="Logotipo de Weso" />
                         <span>Agencia creativa y de producto digital con base en Mar del Plata y equipos distribuidos.</span>
@@ -1439,7 +1744,7 @@
                         <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" data-cursor-hover>LinkedIn</a>
                     </div>
                 </div>
-                <div class="footer-bottom">
+                <div class="footer-bottom" data-animate="fade-up" style="--animate-delay: 0.12s;">
                     <span>© 2025 Weso Studio. Todos los derechos reservados.</span>
                     <span>Hecho con creatividad y tecnología.</span>
                 </div>
@@ -1452,6 +1757,8 @@
                 const cursor = document.querySelector(".cursor");
                 const hoverElements = document.querySelectorAll("[data-cursor-hover]");
                 const pointerElements = document.querySelectorAll("[data-cursor-pointer]");
+                const animatedElements = document.querySelectorAll("[data-animate]");
+                const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
                 if (cursor) {
                     window.addEventListener("mousemove", (e) => {
@@ -1468,6 +1775,27 @@
                         el.addEventListener("mouseenter", () => cursor.classList.add("pointer"));
                         el.addEventListener("mouseleave", () => cursor.classList.remove("pointer"));
                     });
+                }
+
+                if (prefersReducedMotion.matches) {
+                    animatedElements.forEach((el) => el.classList.add("is-visible"));
+                } else if (animatedElements.length) {
+                    const observer = new IntersectionObserver(
+                        (entries, obs) => {
+                            entries.forEach((entry) => {
+                                if (entry.isIntersecting) {
+                                    entry.target.classList.add("is-visible");
+                                    obs.unobserve(entry.target);
+                                }
+                            });
+                        },
+                        {
+                            threshold: 0.15,
+                            rootMargin: "0px 0px -5% 0px",
+                        },
+                    );
+
+                    animatedElements.forEach((el) => observer.observe(el));
                 }
             });
         </script>
