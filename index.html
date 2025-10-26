@@ -1,38 +1,850 @@
 <!doctype html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Weso | Creative Agency</title>
+        <meta
+            name="description"
+            content="Weso es la agencia creativa que impulsa marcas ambiciosas con branding, productos digitales y campañas integradas que enamoran a las audiencias."
+        />
+        <title>Weso — Agencia Creativa para Marcas Imparables</title>
 
         <!-- Google Fonts: Inter & DM Serif Display -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=DM+Serif+Display&display=swap"
+            href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;900&display=swap"
             rel="stylesheet"
         />
 
-        <!-- Custom Styles & Configuration -->
         <style>
             :root {
-                --color-bg: #111111; /* Negro */
-                --color-text: #f9f6ee; /* Hueso/Bone */
-                --color-accent: #00bfff; /* Celeste Eléctrico (Deep Sky Blue) */
-                --cursor-size: 10px;
-                --cursor-size-hover: 50px;
+                --color-bg: #060606;
+                --color-surface: rgba(255, 255, 255, 0.04);
+                --color-surface-strong: rgba(255, 255, 255, 0.08);
+                --color-text: #f8f5f0;
+                --color-text-muted: rgba(248, 245, 240, 0.64);
+                --color-border: rgba(248, 245, 240, 0.18);
+                --color-accent: #00c6ff;
+                --color-accent-strong: #0c89ff;
+                --container-width: min(1120px, calc(100% - 3rem));
+                --cursor-size: 12px;
+                --cursor-size-hover: 58px;
+                --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.35);
+            }
+
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+
+            html {
+                scroll-behavior: smooth;
+                background-color: var(--color-bg);
             }
 
             body {
-                font-family: "Inter", sans-serif;
+                margin: 0;
+                font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
                 background-color: var(--color-bg);
                 color: var(--color-text);
+                min-height: 100vh;
                 cursor: none;
                 overflow-x: hidden;
+                position: relative;
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+
+            img {
+                max-width: 100%;
+                display: block;
             }
 
             .font-serif {
-                font-family: "DM Serif Display", serif;
+                font-family: "DM Serif Display", "Times New Roman", serif;
+            }
+
+            .container {
+                width: var(--container-width);
+                margin: 0 auto;
+            }
+
+            .site-header {
+                position: sticky;
+                top: 0;
+                z-index: 40;
+                padding: 1.25rem 0;
+                backdrop-filter: blur(12px);
+                background: linear-gradient(180deg, rgba(6, 6, 6, 0.92) 0%, rgba(6, 6, 6, 0.65) 100%);
+                border-bottom: 1px solid var(--color-border);
+            }
+
+            .header-content {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1.5rem;
+            }
+
+            .brand {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                font-weight: 700;
+                letter-spacing: 0.02em;
+            }
+
+            .brand img {
+                height: 38px;
+                width: auto;
+            }
+
+            .site-nav {
+                display: flex;
+                align-items: center;
+                gap: 1.75rem;
+            }
+
+            .site-nav a {
+                font-size: 0.95rem;
+                font-weight: 500;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+                color: var(--color-text-muted);
+                transition: color 0.25s ease;
+            }
+
+            .site-nav a:hover,
+            .site-nav a:focus {
+                color: var(--color-text);
+            }
+
+            .btn,
+            .btn-outline {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+                border-radius: 999px;
+                padding: 0.85rem 1.6rem;
+                font-weight: 600;
+                font-size: 0.98rem;
+                letter-spacing: 0.02em;
+                transition: all 0.3s ease;
+                cursor: pointer;
+                border: 1px solid transparent;
+            }
+
+            .btn {
+                background: linear-gradient(120deg, var(--color-accent) 0%, var(--color-accent-strong) 100%);
+                color: #020202;
+                box-shadow: 0 12px 28px rgba(0, 198, 255, 0.28);
+            }
+
+            .btn:hover,
+            .btn:focus {
+                transform: translateY(-2px);
+                box-shadow: 0 20px 36px rgba(0, 198, 255, 0.35);
+            }
+
+            .btn-outline {
+                border-color: rgba(255, 255, 255, 0.24);
+                color: var(--color-text);
+                background: rgba(255, 255, 255, 0.02);
+            }
+
+            .btn-outline:hover,
+            .btn-outline:focus {
+                border-color: var(--color-accent);
+                color: var(--color-accent);
+                transform: translateY(-2px);
+            }
+
+            .hero {
+                position: relative;
+                padding: 8rem 0 6rem;
+                overflow: hidden;
+            }
+
+            .hero::before,
+            .hero::after {
+                content: "";
+                position: absolute;
+                width: 480px;
+                height: 480px;
+                border-radius: 50%;
+                filter: blur(120px);
+                opacity: 0.5;
+                z-index: 0;
+            }
+
+            .hero::before {
+                background: rgba(0, 198, 255, 0.28);
+                top: 8%;
+                left: -10%;
+            }
+
+            .hero::after {
+                background: rgba(255, 255, 255, 0.08);
+                bottom: -10%;
+                right: -5%;
+            }
+
+            .hero-grid {
+                position: relative;
+                z-index: 1;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 4rem;
+                align-items: end;
+            }
+
+            .eyebrow {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.4rem 0.9rem;
+                border-radius: 999px;
+                border: 1px solid rgba(255, 255, 255, 0.18);
+                font-size: 0.85rem;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                color: var(--color-text-muted);
+                margin-bottom: 1.5rem;
+            }
+
+            .hero h1 {
+                margin: 0 0 1.5rem;
+                font-size: clamp(3rem, 4vw + 1rem, 5rem);
+                line-height: 1.05;
+            }
+
+            .hero p {
+                color: var(--color-text-muted);
+                font-size: 1.08rem;
+                max-width: 38ch;
+                margin-bottom: 2rem;
+            }
+
+            .hero-actions {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+                margin-bottom: 3rem;
+            }
+
+            .metrics {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 1.5rem;
+            }
+
+            .metric-card {
+                padding: 1.5rem;
+                border-radius: 1.25rem;
+                background: var(--color-surface);
+                border: 1px solid var(--color-border);
+                box-shadow: var(--shadow-soft);
+                backdrop-filter: blur(16px);
+                min-height: 160px;
+            }
+
+            .metric-card strong {
+                display: block;
+                font-size: 2.4rem;
+                font-weight: 700;
+                margin-bottom: 0.4rem;
+                color: var(--color-accent);
+            }
+
+            .metric-card span {
+                font-size: 0.95rem;
+                color: var(--color-text-muted);
+            }
+
+            .hero-visual {
+                position: relative;
+                border-radius: 2rem;
+                overflow: hidden;
+                border: 1px solid var(--color-border);
+                background: linear-gradient(160deg, rgba(0, 198, 255, 0.15) 0%, rgba(20, 20, 20, 0.85) 65%);
+                padding: 2.8rem;
+                display: flex;
+                flex-direction: column;
+                gap: 1.8rem;
+                min-height: 520px;
+                box-shadow: var(--shadow-soft);
+            }
+
+            .hero-visual img {
+                border-radius: 1.2rem;
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                object-fit: cover;
+                height: 260px;
+                width: 100%;
+            }
+
+            .hero-visual p {
+                font-size: 1rem;
+                color: var(--color-text-muted);
+                margin: 0;
+            }
+
+            .tag-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.8rem;
+            }
+
+            .tag {
+                padding: 0.35rem 0.9rem;
+                border-radius: 999px;
+                border: 1px solid rgba(255, 255, 255, 0.22);
+                background: rgba(255, 255, 255, 0.04);
+                font-size: 0.88rem;
+                color: var(--color-text);
+            }
+
+            .ticker {
+                border-block: 1px solid var(--color-border);
+                background: rgba(255, 255, 255, 0.02);
+                overflow: hidden;
+                white-space: nowrap;
+                position: relative;
+            }
+
+            .ticker::before,
+            .ticker::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                width: 80px;
+                height: 100%;
+                pointer-events: none;
+                z-index: 2;
+            }
+
+            .ticker::before {
+                left: 0;
+                background: linear-gradient(90deg, var(--color-bg) 0%, rgba(6, 6, 6, 0) 100%);
+            }
+
+            .ticker::after {
+                right: 0;
+                background: linear-gradient(270deg, var(--color-bg) 0%, rgba(6, 6, 6, 0) 100%);
+            }
+
+            .ticker-track {
+                display: inline-flex;
+                align-items: center;
+                gap: 2.5rem;
+                padding: 1.35rem 0;
+                animation: marquee 28s linear infinite;
+                font-weight: 600;
+                font-size: 1.05rem;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+            }
+
+            @keyframes marquee {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(-50%);
+                }
+            }
+
+            section {
+                padding: 6rem 0;
+            }
+
+            .section-header {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                margin-bottom: 3rem;
+            }
+
+            .section-label {
+                font-size: 0.78rem;
+                letter-spacing: 0.18em;
+                text-transform: uppercase;
+                color: var(--color-text-muted);
+            }
+
+            .section-title {
+                margin: 0;
+                font-size: clamp(2.2rem, 2.6vw + 1rem, 3.6rem);
+                line-height: 1.12;
+            }
+
+            .section-description {
+                max-width: 60ch;
+                color: var(--color-text-muted);
+                font-size: 1.05rem;
+            }
+
+            .clients-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                gap: 1.5rem;
+                align-items: center;
+            }
+
+            .client-card {
+                padding: 1.75rem 1.5rem;
+                border-radius: 1.2rem;
+                border: 1px solid var(--color-border);
+                background: rgba(255, 255, 255, 0.02);
+                text-align: center;
+                font-weight: 600;
+                letter-spacing: 0.12em;
+                color: rgba(248, 245, 240, 0.68);
+                text-transform: uppercase;
+            }
+
+            .services-grid {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 1.8rem;
+            }
+
+            .service-card {
+                padding: 2.4rem;
+                border-radius: 1.6rem;
+                border: 1px solid var(--color-border);
+                background: var(--color-surface);
+                backdrop-filter: blur(18px);
+                box-shadow: var(--shadow-soft);
+                display: flex;
+                flex-direction: column;
+                gap: 1.6rem;
+                transition: transform 0.3s ease, border-color 0.3s ease;
+            }
+
+            .service-card:hover {
+                transform: translateY(-6px);
+                border-color: rgba(0, 198, 255, 0.65);
+            }
+
+            .service-icon {
+                font-size: 2rem;
+                display: inline-flex;
+                width: 56px;
+                height: 56px;
+                border-radius: 16px;
+                align-items: center;
+                justify-content: center;
+                background: rgba(0, 198, 255, 0.18);
+                border: 1px solid rgba(0, 198, 255, 0.35);
+            }
+
+            .service-card p {
+                margin: 0;
+                color: var(--color-text-muted);
+                line-height: 1.6;
+            }
+
+            .service-list {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 0.65rem;
+                color: rgba(248, 245, 240, 0.72);
+                font-size: 0.95rem;
+            }
+
+            .service-list li::before {
+                content: "▹";
+                margin-right: 0.6rem;
+                color: var(--color-accent);
+            }
+
+            .cases-grid {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 1.75rem;
+            }
+
+            .case-card {
+                position: relative;
+                border-radius: 1.6rem;
+                overflow: hidden;
+                background: var(--color-surface-strong);
+                border: 1px solid var(--color-border);
+                min-height: 360px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                padding: 2rem;
+                color: var(--color-text);
+            }
+
+            .case-card::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background-size: cover;
+                background-position: center;
+                opacity: 0.55;
+                transition: transform 0.6s ease;
+                z-index: 0;
+            }
+
+            .case-card[data-image="tech"]::before {
+                background-image: url("https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=1200&q=80");
+            }
+
+            .case-card[data-image="finance"]::before {
+                background-image: url("https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80");
+            }
+
+            .case-card[data-image="food"]::before {
+                background-image: url("https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80");
+            }
+
+            .case-card:hover::before {
+                transform: scale(1.08);
+            }
+
+            .case-content {
+                position: relative;
+                z-index: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+                background: linear-gradient(0deg, rgba(6, 6, 6, 0.8) 0%, rgba(6, 6, 6, 0.1) 100%);
+                border-radius: 1.2rem;
+                padding: 1.5rem;
+                backdrop-filter: blur(8px);
+            }
+
+            .case-label {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.45rem;
+                font-size: 0.85rem;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: rgba(248, 245, 240, 0.7);
+            }
+
+            .case-title {
+                margin: 0;
+                font-size: 1.65rem;
+            }
+
+            .case-description {
+                margin: 0;
+                font-size: 0.95rem;
+                color: rgba(248, 245, 240, 0.72);
+            }
+
+            .case-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                margin-top: 0.5rem;
+                font-weight: 600;
+                color: var(--color-accent);
+            }
+
+            .process-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 3.5rem;
+                align-items: start;
+            }
+
+            .process-list {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: grid;
+                gap: 2rem;
+            }
+
+            .process-step {
+                padding-left: 3.6rem;
+                position: relative;
+            }
+
+            .process-step::before {
+                content: attr(data-step);
+                position: absolute;
+                left: 0;
+                top: 0.1rem;
+                width: 2.6rem;
+                height: 2.6rem;
+                border-radius: 1rem;
+                background: rgba(0, 198, 255, 0.18);
+                border: 1px solid rgba(0, 198, 255, 0.38);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 600;
+                color: var(--color-accent);
+                font-size: 0.95rem;
+            }
+
+            .process-step h3 {
+                margin: 0 0 0.6rem;
+                font-size: 1.3rem;
+            }
+
+            .process-step p {
+                margin: 0;
+                color: var(--color-text-muted);
+                line-height: 1.6;
+            }
+
+            .labs-section {
+                position: relative;
+                padding: 6rem 0;
+            }
+
+            .labs-wrapper {
+                position: relative;
+                border-radius: 2rem;
+                overflow: hidden;
+                border: 1px solid var(--color-border);
+                background: linear-gradient(140deg, rgba(0, 198, 255, 0.2) 0%, rgba(6, 6, 6, 0.9) 70%);
+                padding: 4rem;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 2.5rem;
+                align-items: center;
+            }
+
+            .labs-wrapper::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: url("https://www.transparenttextures.com/patterns/cubes.png") repeat;
+                opacity: 0.08;
+                pointer-events: none;
+            }
+
+            .labs-text p {
+                color: rgba(248, 245, 240, 0.74);
+                font-size: 1.05rem;
+                line-height: 1.7;
+            }
+
+            .labs-highlights {
+                display: grid;
+                gap: 1.5rem;
+            }
+
+            .labs-card {
+                padding: 1.8rem;
+                border-radius: 1.5rem;
+                border: 1px solid rgba(255, 255, 255, 0.18);
+                background: rgba(6, 6, 6, 0.6);
+                backdrop-filter: blur(12px);
+            }
+
+            .labs-card h4 {
+                margin: 0 0 0.6rem;
+                font-size: 1.15rem;
+            }
+
+            .labs-card p {
+                margin: 0;
+                color: rgba(248, 245, 240, 0.7);
+            }
+
+            .testimonials-grid {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 1.6rem;
+            }
+
+            .testimonial-card {
+                padding: 2.2rem;
+                border-radius: 1.5rem;
+                border: 1px solid var(--color-border);
+                background: rgba(255, 255, 255, 0.03);
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .testimonial-card::before {
+                content: "“";
+                font-size: 6rem;
+                line-height: 0.5;
+                color: rgba(255, 255, 255, 0.08);
+                position: absolute;
+                top: 1.2rem;
+                left: 1.5rem;
+            }
+
+            .testimonial-text {
+                margin: 0;
+                color: rgba(248, 245, 240, 0.82);
+                font-size: 1.05rem;
+                line-height: 1.8;
+            }
+
+            .testimonial-author {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .testimonial-author img {
+                width: 56px;
+                height: 56px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 2px solid rgba(255, 255, 255, 0.22);
+            }
+
+            .testimonial-author strong {
+                display: block;
+                font-size: 1rem;
+            }
+
+            .testimonial-author span {
+                color: var(--color-text-muted);
+                font-size: 0.9rem;
+            }
+
+            .insights-grid {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 1.75rem;
+            }
+
+            .insight-card {
+                padding: 2rem;
+                border-radius: 1.4rem;
+                border: 1px solid var(--color-border);
+                background: rgba(255, 255, 255, 0.02);
+                display: flex;
+                flex-direction: column;
+                gap: 1.2rem;
+                transition: transform 0.3s ease;
+            }
+
+            .insight-card:hover {
+                transform: translateY(-6px);
+            }
+
+            .insight-tag {
+                display: inline-flex;
+                align-items: center;
+                padding: 0.35rem 0.85rem;
+                border-radius: 999px;
+                font-size: 0.78rem;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                border: 1px solid rgba(255, 255, 255, 0.14);
+                color: rgba(248, 245, 240, 0.7);
+            }
+
+            .insight-card h3 {
+                margin: 0;
+                font-size: 1.4rem;
+            }
+
+            .insight-card p {
+                margin: 0;
+                color: rgba(248, 245, 240, 0.7);
+                line-height: 1.6;
+            }
+
+            .cta-section {
+                padding: 6rem 0 7rem;
+            }
+
+            .cta-wrapper {
+                border-radius: 2rem;
+                border: 1px solid rgba(0, 198, 255, 0.38);
+                background: linear-gradient(135deg, rgba(0, 198, 255, 0.18) 0%, rgba(6, 6, 6, 0.9) 75%);
+                padding: 4rem;
+                text-align: center;
+                box-shadow: var(--shadow-soft);
+            }
+
+            .cta-wrapper h2 {
+                margin: 0 0 1rem;
+                font-size: clamp(2.6rem, 3vw + 1rem, 4rem);
+            }
+
+            .cta-wrapper p {
+                margin: 0 auto 2.5rem;
+                max-width: 60ch;
+                color: rgba(248, 245, 240, 0.75);
+                font-size: 1.08rem;
+                line-height: 1.7;
+            }
+
+            .cta-actions {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 1.2rem;
+            }
+
+            .site-footer {
+                border-top: 1px solid var(--color-border);
+                padding: 3rem 0;
+                color: rgba(248, 245, 240, 0.6);
+                font-size: 0.95rem;
+            }
+
+            .footer-content {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 2rem;
+                align-items: start;
+            }
+
+            .footer-brand {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                color: rgba(248, 245, 240, 0.7);
+            }
+
+            .footer-brand img {
+                height: 32px;
+                width: auto;
+            }
+
+            .footer-links,
+            .footer-contact {
+                display: flex;
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .footer-links a,
+            .footer-contact a {
+                color: rgba(248, 245, 240, 0.75);
+            }
+
+            .footer-bottom {
+                margin-top: 3rem;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                gap: 1rem;
+                font-size: 0.85rem;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
             }
 
             /* Custom Cursor */
@@ -40,328 +852,623 @@
                 position: fixed;
                 width: var(--cursor-size);
                 height: var(--cursor-size);
-                background-color: var(--color-accent);
                 border-radius: 50%;
-                top: 0;
-                left: 0;
+                background-color: var(--color-accent);
+                mix-blend-mode: screen;
                 pointer-events: none;
                 transform: translate(-50%, -50%);
-                transition:
-                    width 0.2s ease,
-                    height 0.2s ease,
-                    background-color 0.2s ease;
+                transition: width 0.25s ease, height 0.25s ease, background-color 0.25s ease, opacity 0.25s ease,
+                    border 0.25s ease;
                 z-index: 9999;
             }
+
             .cursor.hover {
                 width: var(--cursor-size-hover);
                 height: var(--cursor-size-hover);
-                background-color: rgba(0, 191, 255, 0.25);
+                background-color: rgba(0, 198, 255, 0.25);
             }
+
             .cursor.pointer {
                 background-color: transparent;
-                border: 1px solid var(--color-accent);
+                border: 2px solid rgba(0, 198, 255, 0.85);
             }
 
-            /* Marquee Animation */
-            .marquee {
-                overflow: hidden;
-                white-space: nowrap;
-                box-sizing: border-box;
-            }
-            .marquee-content {
-                display: inline-block;
-                animation: marquee 30s linear infinite;
-            }
-            @keyframes marquee {
-                0% {
-                    transform: translateX(0%);
+            @media (max-width: 1024px) {
+                .site-nav {
+                    display: none;
                 }
-                100% {
-                    transform: translateX(-100%);
+
+                .hero {
+                    padding-top: 7rem;
+                }
+
+                .hero-grid {
+                    grid-template-columns: 1fr;
+                    gap: 3.5rem;
+                }
+
+                .metrics {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+
+                .services-grid,
+                .cases-grid,
+                .testimonials-grid,
+                .insights-grid {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+
+                .labs-wrapper {
+                    grid-template-columns: 1fr;
+                    padding: 3rem;
+                }
+
+                .footer-content {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
                 }
             }
 
-            /* Line Separator */
-            .line {
-                width: 100%;
-                height: 1px;
-                background-color: rgba(249, 246, 238, 0.2);
+            @media (max-width: 720px) {
+                body {
+                    cursor: default;
+                }
+
+                .cursor {
+                    display: none;
+                }
+
+                .site-header {
+                    padding-block: 1rem;
+                }
+
+                .header-content {
+                    flex-wrap: wrap;
+                    gap: 1rem;
+                }
+
+                .hero {
+                    padding: 6rem 0 4rem;
+                }
+
+                .hero-actions {
+                    flex-direction: column;
+                    align-items: stretch;
+                }
+
+                .metrics {
+                    grid-template-columns: 1fr;
+                }
+
+                .services-grid,
+                .cases-grid,
+                .testimonials-grid,
+                .insights-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .labs-wrapper {
+                    padding: 2.4rem;
+                }
+
+                .footer-content {
+                    grid-template-columns: 1fr;
+                }
+
+                .footer-bottom {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
             }
 
-            /* Project Hover Effect */
-            .project-item .project-image {
-                opacity: 0;
-                transform: scale(0.95) rotate(-5deg);
-                transition:
-                    opacity 0.4s ease,
-                    transform 0.4s ease;
-            }
-            .project-item:hover .project-image {
-                opacity: 1;
-                transform: scale(1) rotate(0);
+            @media (prefers-reduced-motion: reduce) {
+                *,
+                *::before,
+                *::after {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                    scroll-behavior: auto !important;
+                }
             }
         </style>
     </head>
-    <body class="antialiased">
+    <body>
         <div class="cursor"></div>
 
         <!-- ===== HEADER ===== -->
-        <header class="fixed top-0 left-0 w-full z-50 p-6 md:p-8">
-            <div class="flex justify-between items-center">
-                <a href="#" class="text-2xl font-black data-cursor-hover">
-                    <img src="/image.png" alt="" class="h-10" />
+        <header class="site-header">
+            <div class="container header-content">
+                <a href="#inicio" class="brand" data-cursor-hover>
+                    <img src="/image.png" alt="Logotipo de Weso" />
+                    <span>Weso Studio</span>
                 </a>
-                <nav class="flex items-center space-x-6">
-                    <span class="text-sm hidden md:inline"
-                        >Mar del Plata, ARG</span
-                    >
-                    <a
-                        href="#contact"
-                        class="bg-stone-100 text-black px-5 py-2 rounded-full font-bold text-sm data-cursor-hover"
-                        >Hablemos</a
-                    >
+                <nav class="site-nav">
+                    <a href="#servicios" data-cursor-hover>Servicios</a>
+                    <a href="#casos" data-cursor-hover>Casos</a>
+                    <a href="#metodologia" data-cursor-hover>Metodología</a>
+                    <a href="#labs" data-cursor-hover>Labs</a>
+                    <a href="#testimonios" data-cursor-hover>Testimonios</a>
+                    <a href="#contacto" data-cursor-hover>Contacto</a>
                 </nav>
+                <a href="#contacto" class="btn" data-cursor-hover data-cursor-pointer>Agendar reunión</a>
             </div>
         </header>
 
         <main>
             <!-- ===== HERO SECTION ===== -->
-            <section
-                id="home"
-                class="h-screen min-h-[600px] flex flex-col justify-center relative overflow-hidden"
-            >
-                <div class="absolute inset-0 z-0">
-                    <div
-                        class="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/10 rounded-full filter blur-3xl animate-blob"
-                    ></div>
-                    <div
-                        class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-stone-100/10 rounded-full filter blur-3xl animate-blob animation-delay-4000"
-                    ></div>
+            <section class="hero" id="inicio">
+                <div class="container hero-grid">
+                    <div>
+                        <span class="eyebrow" data-cursor-hover>Estudio Global · 100% Independiente</span>
+                        <h1 class="font-serif">
+                            Diseñamos experiencias que convierten marcas ambiciosas en fenómenos culturales.
+                        </h1>
+                        <p>
+                            Desde Mar del Plata hacia el mundo, construimos universos de marca, productos digitales y
+                            campañas integrales que multiplican resultados. Cada proyecto nace de la estrategia y se
+                            lanza con creatividad sin límites.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="#contacto" class="btn" data-cursor-hover data-cursor-pointer>Agenda una sesión estratégica</a>
+                            <a href="#casos" class="btn-outline" data-cursor-hover data-cursor-pointer>Explorar portafolio</a>
+                        </div>
+                        <div class="metrics">
+                            <article class="metric-card" data-cursor-hover>
+                                <strong>+120</strong>
+                                <span>Proyectos lanzados en los últimos 4 años.</span>
+                            </article>
+                            <article class="metric-card" data-cursor-hover>
+                                <strong>92%</strong>
+                                <span>Clientes que renuevan con Weso cada año.</span>
+                            </article>
+                            <article class="metric-card" data-cursor-hover>
+                                <strong>4.9/5</strong>
+                                <span>Satisfacción promedio en NPS y reseñas globales.</span>
+                            </article>
+                        </div>
+                    </div>
+                    <aside class="hero-visual" data-cursor-hover>
+                        <img src="/banner.webp" alt="Equipo creativo de Weso trabajando" loading="lazy" />
+                        <p>
+                            Somos estrategas, diseñadores, storytellers y tecnólogos. Trabajamos como un equipo híbrido
+                            junto a tu marca para diseñar soluciones que nacen en la data y viven en el corazón de las
+                            personas.
+                        </p>
+                        <div class="tag-list">
+                            <span class="tag" data-cursor-hover>Branding Vivo</span>
+                            <span class="tag" data-cursor-hover>Productos Interactivos</span>
+                            <span class="tag" data-cursor-hover>Campañas Multiformato</span>
+                            <span class="tag" data-cursor-hover>Growth & Data</span>
+                        </div>
+                    </aside>
                 </div>
-                <div class="container mx-auto px-6 md:px-8 z-10">
-                    <h1
-                        class="font-serif text-6xl md:text-8xl lg:text-9xl leading-26"
-                    >
-                        <span class="block">Agencia Creativa</span>
-                        <span class="block">Para Marcas</span>
-                        <span class="block">Con Ambición.</span>
-                    </h1>
+            </section>
+
+            <!-- ===== TICKER ===== -->
+            <section class="ticker" aria-label="Servicios destacados de Weso">
+                <div class="ticker-track">
+                    <span data-cursor-hover>Estrategia de Marca</span>
+                    <span data-cursor-hover>•</span>
+                    <span data-cursor-hover>Arquitectura Digital</span>
+                    <span data-cursor-hover>•</span>
+                    <span data-cursor-hover>Campañas Globales</span>
+                    <span data-cursor-hover>•</span>
+                    <span data-cursor-hover>Experiencias Inmersivas</span>
+                    <span data-cursor-hover>•</span>
+                    <span data-cursor-hover>Contenido Premium</span>
+                    <span data-cursor-hover>•</span>
+                    <span data-cursor-hover>Estrategia de Marca</span>
+                    <span data-cursor-hover>•</span>
+                    <span data-cursor-hover>Arquitectura Digital</span>
+                    <span data-cursor-hover>•</span>
+                    <span data-cursor-hover>Campañas Globales</span>
+                    <span data-cursor-hover>•</span>
+                    <span data-cursor-hover>Experiencias Inmersivas</span>
+                    <span data-cursor-hover>•</span>
+                    <span data-cursor-hover>Contenido Premium</span>
                 </div>
-                <div
-                    class="absolute bottom-0 left-0 w-full py-6 bg-accent text-black dark:text-white marquee"
-                >
-                    <div class="marquee-content">
-                        <span class="text-xl font-bold px-8">Branding</span>
-                        <span class="text-xl font-bold px-8">&bull;</span>
-                        <span class="text-xl font-bold px-8"
-                            >Desarrollo Web</span
-                        >
-                        <span class="text-xl font-bold px-8">&bull;</span>
-                        <span class="text-xl font-bold px-8"
-                            >Estrategia Digital</span
-                        >
-                        <span class="text-xl font-bold px-8">&bull;</span>
-                        <span class="text-xl font-bold px-8">Contenido</span>
-                        <span class="text-xl font-bold px-8">&bull;</span>
-                        <span class="text-xl font-bold px-8">Branding</span>
-                        <span class="text-xl font-bold px-8">&bull;</span>
-                        <span class="text-xl font-bold px-8"
-                            >Desarrollo Web</span
-                        >
-                        <span class="text-xl font-bold px-8">&bull;</span>
-                        <span class="text-xl font-bold px-8"
-                            >Estrategia Digital</span
-                        >
-                        <span class="text-xl font-bold px-8">&bull;</span>
-                        <span class="text-xl font-bold px-8">Contenido</span>
-                        <span class="text-xl font-bold px-8">&bull;</span>
+            </section>
+
+            <!-- ===== CLIENTS ===== -->
+            <section id="clientes">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="section-label">Confían en nosotros</span>
+                        <h2 class="section-title font-serif">Socios creativos de líderes que marcan la diferencia.</h2>
+                        <p class="section-description">
+                            Aliados de startups en hipercrecimiento, scaleups tecnológicas y compañías consolidadas que
+                            se transforman para conquistar nuevas audiencias.
+                        </p>
+                    </div>
+                    <div class="clients-grid">
+                        <div class="client-card" data-cursor-hover>Atlas Bank</div>
+                        <div class="client-card" data-cursor-hover>Nova Health</div>
+                        <div class="client-card" data-cursor-hover>Arq Labs</div>
+                        <div class="client-card" data-cursor-hover>Lumina AI</div>
+                        <div class="client-card" data-cursor-hover>Blue Harbor</div>
+                        <div class="client-card" data-cursor-hover>Terra Foods</div>
                     </div>
                 </div>
             </section>
 
-            <!-- ===== PORTFOLIO SECTION ===== -->
-            <section id="portfolio" class="py-20 lg:py-32">
-                <div class="container mx-auto px-6 md:px-8">
-                    <div class="line mb-12"></div>
-                    <ul>
-                        <!-- Project 1 -->
-                        <li
-                            class="project-item relative border-b border-stone-100/20 data-cursor-hover"
-                        >
-                            <a
-                                href="#"
-                                class="flex justify-between items-center py-8 md:py-12"
-                            >
-                                <h2 class="font-serif text-4xl md:text-6xl">
-                                    TechCorp
-                                </h2>
-                                <p
-                                    class="text-lg text-stone-400 hidden md:block"
-                                >
-                                    Branding & Identidad
+            <!-- ===== SERVICES ===== -->
+            <section id="servicios">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="section-label">Servicios</span>
+                        <h2 class="section-title font-serif">Un equipo integral para cada etapa del crecimiento.</h2>
+                        <p class="section-description">
+                            Co-creamos estrategias y experiencias memorables, alineadas con métricas de negocio y listas
+                            para escalar. Cada servicio es un sprint creativo respaldado por data y foco en resultados.
+                        </p>
+                    </div>
+                    <div class="services-grid">
+                        <article class="service-card" data-cursor-hover>
+                            <span class="service-icon">✨</span>
+                            <div>
+                                <h3>Branding & Identidad</h3>
+                                <p>
+                                    Posicionamos tu marca en el corazón de su comunidad con plataformas verbales y
+                                    visuales que se adaptan a cada punto de contacto.
                                 </p>
-                            </a>
-                            <img
-                                src="https://placehold.co/600x400/F9F6EE/111111?text=Weso"
-                                alt="Project Image"
-                                class="project-image absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-auto rounded-lg pointer-events-none z-10"
-                            />
-                        </li>
-                        <!-- Project 2 -->
-                        <li
-                            class="project-item relative border-b border-stone-100/20 data-cursor-hover"
-                        >
-                            <a
-                                href="#"
-                                class="flex justify-between items-center py-8 md:py-12"
-                            >
-                                <h2 class="font-serif text-4xl md:text-6xl">
-                                    Finstart
-                                </h2>
-                                <p
-                                    class="text-lg text-stone-400 hidden md:block"
-                                >
-                                    Web App & UX/UI
+                            </div>
+                            <ul class="service-list">
+                                <li>Investigación & workshops</li>
+                                <li>Arquitectura y narrativa de marca</li>
+                                <li>Design systems dinámicos</li>
+                            </ul>
+                        </article>
+                        <article class="service-card" data-cursor-hover>
+                            <span class="service-icon">🧠</span>
+                            <div>
+                                <h3>Producto & Experiencia Digital</h3>
+                                <p>
+                                    Diseñamos y desarrollamos plataformas digitales, ecommerce y experiencias híbridas
+                                    que convierten y fidelizan.
                                 </p>
-                            </a>
-                            <img
-                                src="https://placehold.co/600x400/00BFFF/111111?text=Weso"
-                                alt="Project Image"
-                                class="project-image absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-auto rounded-lg pointer-events-none z-10"
-                            />
-                        </li>
-                        <!-- Project 3 -->
-                        <li
-                            class="project-item relative border-b border-stone-100/20 data-cursor-hover"
-                        >
-                            <a
-                                href="#"
-                                class="flex justify-between items-center py-8 md:py-12"
-                            >
-                                <h2 class="font-serif text-4xl md:text-6xl">
-                                    EcoFood
-                                </h2>
-                                <p
-                                    class="text-lg text-stone-400 hidden md:block"
-                                >
-                                    Marketing Digital
+                            </div>
+                            <ul class="service-list">
+                                <li>UX Research & CX mapping</li>
+                                <li>Prototipado & diseño UI</li>
+                                <li>Desarrollo web full-stack</li>
+                            </ul>
+                        </article>
+                        <article class="service-card" data-cursor-hover>
+                            <span class="service-icon">🚀</span>
+                            <div>
+                                <h3>Contenido & Growth</h3>
+                                <p>
+                                    Activamos campañas omnicanal que conectan historias poderosas con audiencias listas
+                                    para enamorarse de tu marca.
                                 </p>
-                            </a>
-                            <img
-                                src="https://placehold.co/600x400/111111/F9F6EE?text=Weso"
-                                alt="Project Image"
-                                class="project-image absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-auto rounded-lg pointer-events-none z-10"
-                            />
-                        </li>
-                    </ul>
+                            </div>
+                            <ul class="service-list">
+                                <li>Estrategia always-on & lanzamientos</li>
+                                <li>Producción audiovisual y copywriting</li>
+                                <li>Medición, optimización & growth loops</li>
+                            </ul>
+                        </article>
+                    </div>
                 </div>
             </section>
 
-            <!-- ===== ABOUT & LABS SECTION ===== -->
-            <section id="about" class="py-20 lg:py-32">
-                <div class="container mx-auto px-6 md:px-8">
-                    <div class="line mb-12"></div>
-                    <div class="grid md:grid-cols-2 gap-16 items-center">
-                        <div>
-                            <h3
-                                class="font-serif text-4xl md:text-5xl !leading-tight"
-                            >
-                                Somos un estudio de diseño y tecnología que
-                                impulsa a las marcas hacia el futuro.
-                            </h3>
-                        </div>
-                        <div>
-                            <p class="text-lg text-stone-300 mb-6">
-                                No solo creamos webs bonitas o logos llamativos.
-                                Construimos sistemas y experiencias que
-                                funcionan, conectan y perduran. Nuestra
-                                curiosidad nos lleva a experimentar
-                                constantemente en
-                                <span class="text-accent font-semibold"
-                                    >Weso Labs</span
-                                >, donde exploramos IA, AR y las tecnologías que
-                                definirán el mañana.
+            <!-- ===== CASE STUDIES ===== -->
+            <section id="casos">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="section-label">Casos destacados</span>
+                        <h2 class="section-title font-serif">Resultados tangibles que transforman industrias.</h2>
+                        <p class="section-description">
+                            Historias reales de marcas que confiaron en Weso para amplificar su impacto. Estrategia,
+                            creatividad y ejecución en sincronía.
+                        </p>
+                    </div>
+                    <div class="cases-grid">
+                        <article class="case-card" data-image="tech" data-cursor-hover>
+                            <div class="case-content">
+                                <span class="case-label">SaaS · Serie B</span>
+                                <h3 class="case-title">Lumina OS</h3>
+                                <p class="case-description">
+                                    Rebranding integral, reposicionamiento global y ecosistema digital que elevó el MRR en
+                                    un 63% tras seis meses.
+                                </p>
+                                <a href="#contacto" class="case-link" data-cursor-hover>
+                                    Ver cómo lo logramos
+                                    <span aria-hidden="true">→</span>
+                                </a>
+                            </div>
+                        </article>
+                        <article class="case-card" data-image="finance" data-cursor-hover>
+                            <div class="case-content">
+                                <span class="case-label">Fintech · LATAM</span>
+                                <h3 class="case-title">Atlas Bank</h3>
+                                <p class="case-description">
+                                    Diseño de app, onboarding inteligente y campañas de adquisición que duplicaron la
+                                    base de usuarios activos.
+                                </p>
+                                <a href="#contacto" class="case-link" data-cursor-hover>
+                                    Descubrir el proyecto
+                                    <span aria-hidden="true">→</span>
+                                </a>
+                            </div>
+                        </article>
+                        <article class="case-card" data-image="food" data-cursor-hover>
+                            <div class="case-content">
+                                <span class="case-label">Consumo masivo</span>
+                                <h3 class="case-title">Terra Foods</h3>
+                                <p class="case-description">
+                                    Plataforma ecommerce, storytelling y programa de fidelización que generaron +140% en
+                                    ventas directas.
+                                </p>
+                                <a href="#contacto" class="case-link" data-cursor-hover>
+                                    Agenda una demo
+                                    <span aria-hidden="true">→</span>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== PROCESS ===== -->
+            <section id="metodologia">
+                <div class="container process-grid">
+                    <div>
+                        <div class="section-header">
+                            <span class="section-label">Metodología Weso</span>
+                            <h2 class="section-title font-serif">Equipos integrados, velocidad y claridad total.</h2>
+                            <p class="section-description">
+                                Operamos como un partner dentro de tu organización. Equipos ágiles, rituales semanales y
+                                métricas compartidas para acelerar decisiones y lanzar con precisión.
                             </p>
-                            <a
-                                href="#"
-                                class="text-accent font-bold text-lg border-b-2 border-accent pb-1 data-cursor-hover"
-                                >Más sobre nosotros</a
-                            >
+                        </div>
+                        <a href="#contacto" class="btn-outline" data-cursor-hover data-cursor-pointer>Solicitar blueprint personalizado</a>
+                    </div>
+                    <ol class="process-list">
+                        <li class="process-step" data-step="01" data-cursor-hover>
+                            <h3>Descubrimiento inmersivo</h3>
+                            <p>
+                                Workshops, entrevistas y research para mapear oportunidades, audiencias y diferenciales
+                                competitivos.
+                            </p>
+                        </li>
+                        <li class="process-step" data-step="02" data-cursor-hover>
+                            <h3>Strategic Sprint</h3>
+                            <p>
+                                Definimos narrativa, UX blueprint y roadmap creativo con foco en KPIs y quick wins
+                                accionables.
+                            </p>
+                        </li>
+                        <li class="process-step" data-step="03" data-cursor-hover>
+                            <h3>Producción & activación</h3>
+                            <p>
+                                Diseño, desarrollo y contenidos integrados listos para salir al mercado y medir impacto
+                                desde el día cero.
+                            </p>
+                        </li>
+                        <li class="process-step" data-step="04" data-cursor-hover>
+                            <h3>Optimización continua</h3>
+                            <p>
+                                Iteramos con data en vivo, experimentos y automatizaciones para seguir escalando tu
+                                crecimiento.
+                            </p>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- ===== WESO LABS ===== -->
+            <section class="labs-section" id="labs">
+                <div class="container">
+                    <div class="labs-wrapper">
+                        <div class="labs-text">
+                            <span class="section-label">Weso Labs</span>
+                            <h2 class="section-title font-serif">Innovación aplicada en IA, Web3 y experiencias inmersivas.</h2>
+                            <p>
+                                Nuestro laboratorio interno explora tecnologías emergentes y prototipa soluciones que luego
+                                llevamos a las marcas con las que trabajamos. Desde asistentes de IA entrenados en tus
+                                datos hasta activaciones phygital con realidad aumentada.
+                            </p>
+                            <a href="#contacto" class="btn" data-cursor-hover data-cursor-pointer>Probar un piloto con Weso Labs</a>
+                        </div>
+                        <div class="labs-highlights">
+                            <article class="labs-card" data-cursor-hover>
+                                <h4>Experiencias activadas por IA</h4>
+                                <p>Personalizamos cada punto del journey con contenido dinámico y asistentes conversacionales.</p>
+                            </article>
+                            <article class="labs-card" data-cursor-hover>
+                                <h4>Digital twins & eventos híbridos</h4>
+                                <p>Diseñamos entornos inmersivos para lanzamientos globales y comunidades 24/7.</p>
+                            </article>
+                            <article class="labs-card" data-cursor-hover>
+                                <h4>Growth automation</h4>
+                                <p>Automatizamos campañas, reporting y ciclos de iteración para escalar sin fricción.</p>
+                            </article>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- ===== CONTACT / FOOTER ===== -->
-            <footer
-                id="contact"
-                class="py-20 lg:py-32 bg-accent text-black dark:text-white"
-            >
-                <div class="container mx-auto px-6 md:px-8 text-center">
-                    <h2
-                        class="font-serif text-5xl md:text-7xl lg:text-8xl leading-26 mb-8"
-                    >
-                        ¿Tienes una idea? <br />
-                        Hagámosla realidad.
-                    </h2>
-                    <a
-                        href="mailto:contacto@weso.ar"
-                        class="inline-block bg-black text-stone-100 text-2xl md:text-3xl font-bold py-6 px-12 rounded-full data-cursor-hover transition-transform hover:scale-105"
-                        >contacto@weso.ar</a
-                    >
-                    <div
-                        class="mt-20 lg:mt-32 flex flex-col md:flex-row justify-between items-center text-sm"
-                    >
-                        <p class="font-bold">© 2025 Weso Studio</p>
-                        <div class="flex space-x-6 mt-4 md:mt-0">
-                            <a href="#" class="data-cursor-hover">Instagram</a>
-                            <a href="#" class="data-cursor-hover">LinkedIn</a>
-                            <a href="#" class="data-cursor-hover">Behance</a>
+            <!-- ===== TESTIMONIALS ===== -->
+            <section id="testimonios">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="section-label">Testimonios</span>
+                        <h2 class="section-title font-serif">Historias de crecimiento contadas por nuestros socios.</h2>
+                        <p class="section-description">
+                            Relaciones que se convierten en alianzas a largo plazo. Equipos que confían en nuestra forma
+                            de trabajar y en los resultados que entregamos.
+                        </p>
+                    </div>
+                    <div class="testimonials-grid">
+                        <article class="testimonial-card" data-cursor-hover>
+                            <p class="testimonial-text">
+                                “Weso se incrustó en nuestro equipo con una velocidad increíble. En tres meses lanzamos un
+                                nuevo posicionamiento y una web que duplicó la generación de leads calificados.”
+                            </p>
+                            <div class="testimonial-author">
+                                <img src="https://i.pravatar.cc/150?img=12" alt="Retrato de Carla Domínguez" loading="lazy" />
+                                <div>
+                                    <strong>Carla Domínguez</strong>
+                                    <span>VP Marketing · Lumina OS</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="testimonial-card" data-cursor-hover>
+                            <p class="testimonial-text">
+                                “Desde el primer workshop entendieron nuestra visión. Integraron data, creatividad y
+                                performance para lanzar campañas globales que triplicaron el ROI.”
+                            </p>
+                            <div class="testimonial-author">
+                                <img src="https://i.pravatar.cc/150?img=25" alt="Retrato de Diego Ortega" loading="lazy" />
+                                <div>
+                                    <strong>Diego Ortega</strong>
+                                    <span>Chief Growth Officer · Atlas Bank</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="testimonial-card" data-cursor-hover>
+                            <p class="testimonial-text">
+                                “Su enfoque colaborativo y la obsesión por el detalle nos permitieron acelerar la
+                                transformación digital y crear experiencias memorables para nuestros clientes.”
+                            </p>
+                            <div class="testimonial-author">
+                                <img src="https://i.pravatar.cc/150?img=32" alt="Retrato de Fernanda Vélez" loading="lazy" />
+                                <div>
+                                    <strong>Fernanda Vélez</strong>
+                                    <span>Directora de Innovación · Terra Foods</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== INSIGHTS ===== -->
+            <section id="insights">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="section-label">Insights</span>
+                        <h2 class="section-title font-serif">Ideas frescas para liderar el futuro de tu marca.</h2>
+                        <p class="section-description">
+                            Cada mes compartimos frameworks, guías y aprendizajes accionables para tu equipo. Suscríbete y
+                            recibe antes que nadie nuestras novedades.
+                        </p>
+                    </div>
+                    <div class="insights-grid">
+                        <article class="insight-card" data-cursor-hover>
+                            <span class="insight-tag">Guía</span>
+                            <h3>Cómo construir una plataforma de marca con IA generativa</h3>
+                            <p>
+                                De la investigación a la activación: procesos, herramientas y casos reales para crear
+                                universos de marca inteligentes.
+                            </p>
+                            <a href="#contacto" class="case-link" data-cursor-hover>
+                                Solicitar descarga
+                                <span aria-hidden="true">→</span>
+                            </a>
+                        </article>
+                        <article class="insight-card" data-cursor-hover>
+                            <span class="insight-tag">Framework</span>
+                            <h3>Playbook de lanzamientos de alto impacto en 45 días</h3>
+                            <p>
+                                Un paso a paso para coordinar equipos creativos, medios y tecnología con foco en métricas
+                                comerciales.
+                            </p>
+                            <a href="#contacto" class="case-link" data-cursor-hover>
+                                Recibir el playbook
+                                <span aria-hidden="true">→</span>
+                            </a>
+                        </article>
+                        <article class="insight-card" data-cursor-hover>
+                            <span class="insight-tag">Reporte</span>
+                            <h3>El futuro del retail híbrido en LATAM</h3>
+                            <p>
+                                Tendencias, datos y oportunidades para marcas que buscan combinar experiencias físicas y
+                                digitales con éxito.
+                            </p>
+                            <a href="#contacto" class="case-link" data-cursor-hover>
+                                Unirme a la lista
+                                <span aria-hidden="true">→</span>
+                            </a>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== CTA ===== -->
+            <section class="cta-section" id="contacto">
+                <div class="container">
+                    <div class="cta-wrapper">
+                        <h2 class="font-serif">¿Listo para construir la próxima historia icónica?</h2>
+                        <p>
+                            Cuéntanos sobre tu desafío y diseñaremos una propuesta a medida en menos de 48 horas. Somos
+                            el partner creativo y tecnológico que acompaña a equipos con ambición global.
+                        </p>
+                        <div class="cta-actions">
+                            <a href="mailto:contacto@weso.ar" class="btn" data-cursor-hover data-cursor-pointer>contacto@weso.ar</a>
+                            <a href="https://cal.com/" class="btn-outline" target="_blank" rel="noreferrer" data-cursor-hover data-cursor-pointer>
+                                Reservar una llamada
+                            </a>
                         </div>
                     </div>
                 </div>
-            </footer>
+            </section>
         </main>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <img src="/image.png" alt="Logotipo de Weso" />
+                        <span>Agencia creativa y de producto digital con base en Mar del Plata y equipos distribuidos.</span>
+                    </div>
+                    <div class="footer-links">
+                        <strong>Explorar</strong>
+                        <a href="#servicios" data-cursor-hover>Servicios</a>
+                        <a href="#casos" data-cursor-hover>Casos</a>
+                        <a href="#labs" data-cursor-hover>Labs</a>
+                        <a href="#insights" data-cursor-hover>Insights</a>
+                    </div>
+                    <div class="footer-contact">
+                        <strong>Conversemos</strong>
+                        <a href="mailto:contacto@weso.ar" data-cursor-hover>contacto@weso.ar</a>
+                        <a href="tel:+5492235123456" data-cursor-hover>+54 9 223 512 3456</a>
+                        <a href="https://www.instagram.com" target="_blank" rel="noreferrer" data-cursor-hover>Instagram</a>
+                        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" data-cursor-hover>LinkedIn</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <span>© 2025 Weso Studio. Todos los derechos reservados.</span>
+                    <span>Hecho con creatividad y tecnología.</span>
+                </div>
+            </div>
+        </footer>
 
         <!-- ===== JAVASCRIPT ===== -->
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 const cursor = document.querySelector(".cursor");
-                const hoverElements = document.querySelectorAll(
-                    "[data-cursor-hover]",
-                );
+                const hoverElements = document.querySelectorAll("[data-cursor-hover]");
+                const pointerElements = document.querySelectorAll("[data-cursor-pointer]");
 
-                // --- Custom Cursor Logic ---
-                window.addEventListener("mousemove", (e) => {
-                    cursor.style.left = e.clientX + "px";
-                    cursor.style.top = e.clientY + "px";
-                });
-
-                hoverElements.forEach((el) => {
-                    el.addEventListener("mouseenter", () =>
-                        cursor.classList.add("hover"),
-                    );
-                    el.addEventListener("mouseleave", () =>
-                        cursor.classList.remove("hover"),
-                    );
-                });
-
-                // --- Project Image Hover Effect ---
-                const projectItems = document.querySelectorAll(".project-item");
-                projectItems.forEach((item) => {
-                    const image = item.querySelector(".project-image");
-                    item.addEventListener("mousemove", (e) => {
-                        // Get position of the item relative to the viewport
-                        const rect = item.getBoundingClientRect();
-                        // Calculate mouse position relative to the item
-                        const x = e.clientX - rect.left;
-                        const y = e.clientY - rect.top;
-
-                        // Update image position
-                        image.style.left = x + "px";
-                        image.style.top = y + "px";
+                if (cursor) {
+                    window.addEventListener("mousemove", (e) => {
+                        cursor.style.left = e.clientX + "px";
+                        cursor.style.top = e.clientY + "px";
                     });
-                });
+
+                    hoverElements.forEach((el) => {
+                        el.addEventListener("mouseenter", () => cursor.classList.add("hover"));
+                        el.addEventListener("mouseleave", () => cursor.classList.remove("hover"));
+                    });
+
+                    pointerElements.forEach((el) => {
+                        el.addEventListener("mouseenter", () => cursor.classList.add("pointer"));
+                        el.addEventListener("mouseleave", () => cursor.classList.remove("pointer"));
+                    });
+                }
             });
         </script>
         <script type="module" src="src/main.ts"></script>
