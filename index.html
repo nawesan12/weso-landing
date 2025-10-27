@@ -19,8 +19,12 @@
 
         <style>
             :root {
-                --font-body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-                --font-display: "Space Grotesk", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+                --font-body:
+                    "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+                    "Segoe UI", sans-serif;
+                --font-display:
+                    "Space Grotesk", "Inter", system-ui, -apple-system,
+                    BlinkMacSystemFont, "Segoe UI", sans-serif;
                 --font-serif: "DM Serif Display", "Times New Roman", serif;
                 --color-bg: #060606;
                 --color-surface: rgba(255, 255, 255, 0.04);
@@ -104,7 +108,11 @@
                 z-index: 40;
                 padding: 1.25rem 0;
                 backdrop-filter: blur(12px);
-                background: linear-gradient(180deg, rgba(6, 6, 6, 0.92) 0%, rgba(6, 6, 6, 0.65) 100%);
+                background: linear-gradient(
+                    180deg,
+                    rgba(6, 6, 6, 0.92) 0%,
+                    rgba(6, 6, 6, 0.65) 100%
+                );
                 border-bottom: 1px solid var(--color-border);
             }
 
@@ -159,14 +167,22 @@
                 font-weight: 600;
                 font-size: 0.98rem;
                 letter-spacing: 0.02em;
-                transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease, background 0.3s ease,
+                transition:
+                    transform 0.3s ease,
+                    box-shadow 0.3s ease,
+                    color 0.3s ease,
+                    background 0.3s ease,
                     border-color 0.3s ease;
                 cursor: pointer;
                 border: 1px solid transparent;
             }
 
             .btn {
-                background: linear-gradient(120deg, var(--color-accent) 0%, var(--color-accent-strong) 100%);
+                background: linear-gradient(
+                    120deg,
+                    var(--color-accent) 0%,
+                    var(--color-accent-strong) 100%
+                );
                 color: #020202;
                 box-shadow: 0 12px 28px rgba(0, 198, 255, 0.28);
             }
@@ -192,7 +208,8 @@
 
             .hero {
                 position: relative;
-                padding: clamp(6rem, 8vw + 2rem, 8rem) 0 clamp(5rem, 6vw + 1rem, 6.5rem);
+                padding: clamp(6rem, 8vw + 2rem, 8rem) 0
+                    clamp(5rem, 6vw + 1rem, 6.5rem);
                 overflow: hidden;
                 isolation: isolate;
             }
@@ -282,7 +299,9 @@
                 box-shadow: var(--shadow-soft);
                 backdrop-filter: blur(16px);
                 min-height: 160px;
-                transition: transform 0.35s ease, border-color 0.35s ease;
+                transition:
+                    transform 0.35s ease,
+                    border-color 0.35s ease;
                 will-change: transform;
             }
 
@@ -310,7 +329,11 @@
                 border-radius: 2rem;
                 overflow: hidden;
                 border: 1px solid var(--color-border);
-                background: linear-gradient(160deg, rgba(0, 198, 255, 0.15) 0%, rgba(20, 20, 20, 0.85) 65%);
+                background: linear-gradient(
+                    160deg,
+                    rgba(0, 198, 255, 0.15) 0%,
+                    rgba(20, 20, 20, 0.85) 65%
+                );
                 padding: 2.8rem;
                 display: flex;
                 flex-direction: column;
@@ -348,7 +371,9 @@
                 background: rgba(255, 255, 255, 0.04);
                 font-size: 0.88rem;
                 color: var(--color-text);
-                transition: transform 0.3s ease, border-color 0.3s ease;
+                transition:
+                    transform 0.3s ease,
+                    border-color 0.3s ease;
                 will-change: transform;
             }
 
@@ -379,12 +404,20 @@
 
             .ticker::before {
                 left: 0;
-                background: linear-gradient(90deg, var(--color-bg) 0%, rgba(6, 6, 6, 0) 100%);
+                background: linear-gradient(
+                    90deg,
+                    var(--color-bg) 0%,
+                    rgba(6, 6, 6, 0) 100%
+                );
             }
 
             .ticker::after {
                 right: 0;
-                background: linear-gradient(270deg, var(--color-bg) 0%, rgba(6, 6, 6, 0) 100%);
+                background: linear-gradient(
+                    270deg,
+                    var(--color-bg) 0%,
+                    rgba(6, 6, 6, 0) 100%
+                );
             }
 
             .ticker-track {
@@ -403,7 +436,8 @@
             [data-animate] {
                 opacity: 0;
                 transform: translate3d(0, var(--animate-offset, 24px), 0);
-                transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                transition:
+                    opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
                     transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
                 transition-delay: var(--animate-delay, 0s);
                 will-change: opacity, transform;
@@ -520,7 +554,10 @@
                 display: flex;
                 flex-direction: column;
                 gap: 1.6rem;
-                transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+                transition:
+                    transform 0.35s ease,
+                    border-color 0.35s ease,
+                    box-shadow 0.35s ease;
                 will-change: transform;
             }
 
@@ -583,7 +620,10 @@
                 justify-content: flex-end;
                 padding: 2rem;
                 color: var(--color-text);
-                transition: transform 0.45s ease, border-color 0.45s ease, box-shadow 0.45s ease;
+                transition:
+                    transform 0.45s ease,
+                    border-color 0.45s ease,
+                    box-shadow 0.45s ease;
                 will-change: transform;
             }
 
@@ -627,7 +667,11 @@
                 display: flex;
                 flex-direction: column;
                 gap: 0.75rem;
-                background: linear-gradient(0deg, rgba(6, 6, 6, 0.8) 0%, rgba(6, 6, 6, 0.1) 100%);
+                background: linear-gradient(
+                    0deg,
+                    rgba(6, 6, 6, 0.8) 0%,
+                    rgba(6, 6, 6, 0.1) 100%
+                );
                 border-radius: 1.2rem;
                 padding: 1.5rem;
                 backdrop-filter: blur(8px);
@@ -663,7 +707,9 @@
                 color: var(--color-accent);
                 letter-spacing: 0.08em;
                 text-transform: uppercase;
-                transition: gap 0.3s ease, color 0.3s ease;
+                transition:
+                    gap 0.3s ease,
+                    color 0.3s ease;
             }
 
             .case-link span {
@@ -741,7 +787,11 @@
                 border-radius: 2rem;
                 overflow: hidden;
                 border: 1px solid var(--color-border);
-                background: linear-gradient(140deg, rgba(0, 198, 255, 0.2) 0%, rgba(6, 6, 6, 0.9) 70%);
+                background: linear-gradient(
+                    140deg,
+                    rgba(0, 198, 255, 0.2) 0%,
+                    rgba(6, 6, 6, 0.9) 70%
+                );
                 padding: 4rem;
                 display: grid;
                 grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -753,7 +803,8 @@
                 content: "";
                 position: absolute;
                 inset: 0;
-                background: url("https://www.transparenttextures.com/patterns/cubes.png") repeat;
+                background: url("https://www.transparenttextures.com/patterns/cubes.png")
+                    repeat;
                 opacity: 0.08;
                 pointer-events: none;
             }
@@ -775,7 +826,10 @@
                 border: 1px solid rgba(255, 255, 255, 0.18);
                 background: rgba(6, 6, 6, 0.6);
                 backdrop-filter: blur(12px);
-                transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+                transition:
+                    transform 0.35s ease,
+                    border-color 0.35s ease,
+                    background 0.35s ease;
                 will-change: transform;
             }
 
@@ -812,7 +866,10 @@
                 gap: 1.5rem;
                 position: relative;
                 overflow: hidden;
-                transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+                transition:
+                    transform 0.35s ease,
+                    border-color 0.35s ease,
+                    box-shadow 0.35s ease;
                 will-change: transform;
             }
 
@@ -878,7 +935,10 @@
                 display: flex;
                 flex-direction: column;
                 gap: 1.2rem;
-                transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+                transition:
+                    transform 0.35s ease,
+                    border-color 0.35s ease,
+                    box-shadow 0.35s ease;
                 will-change: transform;
             }
 
@@ -918,7 +978,11 @@
             .cta-wrapper {
                 border-radius: 2rem;
                 border: 1px solid rgba(0, 198, 255, 0.38);
-                background: linear-gradient(135deg, rgba(0, 198, 255, 0.18) 0%, rgba(6, 6, 6, 0.9) 75%);
+                background: linear-gradient(
+                    135deg,
+                    rgba(0, 198, 255, 0.18) 0%,
+                    rgba(6, 6, 6, 0.9) 75%
+                );
                 padding: 4rem;
                 text-align: center;
                 box-shadow: var(--shadow-soft);
@@ -1003,7 +1067,11 @@
                 mix-blend-mode: screen;
                 pointer-events: none;
                 transform: translate(-50%, -50%);
-                transition: width 0.25s ease, height 0.25s ease, background-color 0.25s ease, opacity 0.25s ease,
+                transition:
+                    width 0.25s ease,
+                    height 0.25s ease,
+                    background-color 0.25s ease,
+                    opacity 0.25s ease,
                     border 0.25s ease;
                 z-index: 9999;
             }
@@ -1251,7 +1319,7 @@
             <div class="container header-content">
                 <a href="#inicio" class="brand" data-cursor-hover>
                     <img src="/image.png" alt="Logotipo de Weso" />
-                    <span>Weso Studio</span>
+                    <span class="sr-only">Weso Studio</span>
                 </a>
                 <nav class="site-nav">
                     <a href="#servicios" data-cursor-hover>Servicios</a>
@@ -1261,7 +1329,13 @@
                     <a href="#testimonios" data-cursor-hover>Testimonios</a>
                     <a href="#contacto" data-cursor-hover>Contacto</a>
                 </nav>
-                <a href="#contacto" class="btn" data-cursor-hover data-cursor-pointer>Agendar reunión</a>
+                <a
+                    href="#contacto"
+                    class="btn"
+                    data-cursor-hover
+                    data-cursor-pointer
+                    >Agendar reunión</a
+                >
             </div>
         </header>
 
@@ -1274,49 +1348,80 @@
                             class="eyebrow"
                             data-cursor-hover
                             data-animate="fade-up"
-                            style="--animate-delay: 0.05s;"
+                            style="--animate-delay: 0.05s"
                         >
                             Estudio Global · 100% Independiente
                         </span>
-                        <h1 class="font-serif" data-animate="fade-up" style="--animate-delay: 0.12s;">
-                            Diseñamos experiencias que convierten marcas ambiciosas en fenómenos culturales.
+                        <h1
+                            class="font-serif"
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.12s"
+                        >
+                            Diseñamos experiencias que convierten marcas
+                            ambiciosas en fenómenos culturales.
                         </h1>
-                        <p data-animate="fade-up" style="--animate-delay: 0.2s;">
-                            Desde Mar del Plata hacia el mundo, construimos universos de marca, productos digitales y
-                            campañas integrales que multiplican resultados. Cada proyecto nace de la estrategia y se
-                            lanza con creatividad sin límites.
+                        <p data-animate="fade-up" style="--animate-delay: 0.2s">
+                            Desde Mar del Plata hacia el mundo, construimos
+                            universos de marca, productos digitales y campañas
+                            integrales que multiplican resultados. Cada proyecto
+                            nace de la estrategia y se lanza con creatividad sin
+                            límites.
                         </p>
-                        <div class="hero-actions" data-animate="fade-up" style="--animate-delay: 0.28s;">
-                            <a href="#contacto" class="btn" data-cursor-hover data-cursor-pointer>Agenda una sesión estratégica</a>
-                            <a href="#casos" class="btn-outline" data-cursor-hover data-cursor-pointer>Explorar portafolio</a>
-                        </div>
-                        <div class="metrics" data-animate="fade-up" style="--animate-delay: 0.36s;">
-                            <article class="metric-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.42s;">
-                                <strong>+120</strong>
-                                <span>Proyectos lanzados en los últimos 4 años.</span>
-                            </article>
-                            <article class="metric-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.48s;">
-                                <strong>92%</strong>
-                                <span>Clientes que renuevan con Weso cada año.</span>
-                            </article>
-                            <article class="metric-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.54s;">
-                                <strong>4.9/5</strong>
-                                <span>Satisfacción promedio en NPS y reseñas globales.</span>
-                            </article>
+                        <div
+                            class="hero-actions"
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.28s"
+                        >
+                            <a
+                                href="#contacto"
+                                class="btn"
+                                data-cursor-hover
+                                data-cursor-pointer
+                                >Agenda una sesión estratégica</a
+                            >
+                            <a
+                                href="#casos"
+                                class="btn-outline"
+                                data-cursor-hover
+                                data-cursor-pointer
+                                >Explorar portafolio</a
+                            >
                         </div>
                     </div>
-                    <aside class="hero-visual" data-cursor-hover data-animate="fade-in" style="--animate-delay: 0.32s;">
-                        <img src="/banner.webp" alt="Equipo creativo de Weso trabajando" loading="lazy" />
+                    <aside
+                        class="hero-visual"
+                        data-cursor-hover
+                        data-animate="fade-in"
+                        style="--animate-delay: 0.32s"
+                    >
+                        <img
+                            src="/banner.webp"
+                            alt="Equipo creativo de Weso trabajando"
+                            loading="lazy"
+                        />
                         <p>
-                            Somos estrategas, diseñadores, storytellers y tecnólogos. Trabajamos como un equipo híbrido
-                            junto a tu marca para diseñar soluciones que nacen en la data y viven en el corazón de las
-                            personas.
+                            Somos estrategas, diseñadores, storytellers y
+                            tecnólogos. Trabajamos como un equipo híbrido junto
+                            a tu marca para diseñar soluciones que nacen en la
+                            data y viven en el corazón de las personas.
                         </p>
-                        <div class="tag-list" data-animate="fade-up" style="--animate-delay: 0.46s;">
-                            <span class="tag" data-cursor-hover>Branding Vivo</span>
-                            <span class="tag" data-cursor-hover>Productos Interactivos</span>
-                            <span class="tag" data-cursor-hover>Campañas Multiformato</span>
-                            <span class="tag" data-cursor-hover>Growth & Data</span>
+                        <div
+                            class="tag-list"
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.46s"
+                        >
+                            <span class="tag" data-cursor-hover
+                                >Branding Vivo</span
+                            >
+                            <span class="tag" data-cursor-hover
+                                >Productos Interactivos</span
+                            >
+                            <span class="tag" data-cursor-hover
+                                >Campañas Multiformato</span
+                            >
+                            <span class="tag" data-cursor-hover
+                                >Growth & Data</span
+                            >
                         </div>
                     </aside>
                 </div>
@@ -1324,7 +1429,11 @@
 
             <!-- ===== TICKER ===== -->
             <section class="ticker" aria-label="Servicios destacados de Weso">
-                <div class="ticker-track" data-animate="fade-up" style="--animate-delay: 0.1s;">
+                <div
+                    class="ticker-track"
+                    data-animate="fade-up"
+                    style="--animate-delay: 0.1s"
+                >
                     <span data-cursor-hover>Estrategia de Marca</span>
                     <span data-cursor-hover>•</span>
                     <span data-cursor-hover>Arquitectura Digital</span>
@@ -1352,19 +1461,69 @@
                 <div class="container">
                     <div class="section-header" data-animate="fade-up">
                         <span class="section-label">Confían en nosotros</span>
-                        <h2 class="section-title font-serif">Socios creativos de líderes que marcan la diferencia.</h2>
+                        <h2 class="section-title font-serif">
+                            Socios creativos de líderes que marcan la
+                            diferencia.
+                        </h2>
                         <p class="section-description">
-                            Aliados de startups en hipercrecimiento, scaleups tecnológicas y compañías consolidadas que
-                            se transforman para conquistar nuevas audiencias.
+                            Aliados de startups en hipercrecimiento, scaleups
+                            tecnológicas y compañías consolidadas que se
+                            transforman para conquistar nuevas audiencias.
                         </p>
                     </div>
-                    <div class="clients-grid" data-animate="fade-up" style="--animate-delay: 0.12s;">
-                        <div class="client-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.16s;">Atlas Bank</div>
-                        <div class="client-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.2s;">Nova Health</div>
-                        <div class="client-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.24s;">Arq Labs</div>
-                        <div class="client-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.28s;">Lumina AI</div>
-                        <div class="client-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.32s;">Blue Harbor</div>
-                        <div class="client-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.36s;">Terra Foods</div>
+                    <div
+                        class="clients-grid"
+                        data-animate="fade-up"
+                        style="--animate-delay: 0.12s"
+                    >
+                        <div
+                            class="client-card"
+                            data-cursor-hover
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.16s"
+                        >
+                            Atlas Bank
+                        </div>
+                        <div
+                            class="client-card"
+                            data-cursor-hover
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.2s"
+                        >
+                            Nova Health
+                        </div>
+                        <div
+                            class="client-card"
+                            data-cursor-hover
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.24s"
+                        >
+                            Arq Labs
+                        </div>
+                        <div
+                            class="client-card"
+                            data-cursor-hover
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.28s"
+                        >
+                            Lumina AI
+                        </div>
+                        <div
+                            class="client-card"
+                            data-cursor-hover
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.32s"
+                        >
+                            Blue Harbor
+                        </div>
+                        <div
+                            class="client-card"
+                            data-cursor-hover
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.36s"
+                        >
+                            Terra Foods
+                        </div>
                     </div>
                 </div>
             </section>
@@ -1374,20 +1533,35 @@
                 <div class="container">
                     <div class="section-header" data-animate="fade-up">
                         <span class="section-label">Servicios</span>
-                        <h2 class="section-title font-serif">Un equipo integral para cada etapa del crecimiento.</h2>
+                        <h2 class="section-title font-serif">
+                            Un equipo integral para cada etapa del crecimiento.
+                        </h2>
                         <p class="section-description">
-                            Co-creamos estrategias y experiencias memorables, alineadas con métricas de negocio y listas
-                            para escalar. Cada servicio es un sprint creativo respaldado por data y foco en resultados.
+                            Co-creamos estrategias y experiencias memorables,
+                            alineadas con métricas de negocio y listas para
+                            escalar. Cada servicio es un sprint creativo
+                            respaldado por data y foco en resultados.
                         </p>
                     </div>
-                    <div class="services-grid" data-animate="fade-up" style="--animate-delay: 0.12s;">
-                        <article class="service-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.18s;">
+                    <div
+                        class="services-grid"
+                        data-animate="fade-up"
+                        style="--animate-delay: 0.12s"
+                    >
+                        <article
+                            class="service-card"
+                            data-cursor-hover
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.18s"
+                        >
                             <span class="service-icon">✨</span>
                             <div>
                                 <h3>Branding & Identidad</h3>
                                 <p>
-                                    Posicionamos tu marca en el corazón de su comunidad con plataformas verbales y
-                                    visuales que se adaptan a cada punto de contacto.
+                                    Posicionamos tu marca en el corazón de su
+                                    comunidad con plataformas verbales y
+                                    visuales que se adaptan a cada punto de
+                                    contacto.
                                 </p>
                             </div>
                             <ul class="service-list">
@@ -1396,12 +1570,18 @@
                                 <li>Design systems dinámicos</li>
                             </ul>
                         </article>
-                        <article class="service-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.24s;">
+                        <article
+                            class="service-card"
+                            data-cursor-hover
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.24s"
+                        >
                             <span class="service-icon">🧠</span>
                             <div>
                                 <h3>Producto & Experiencia Digital</h3>
                                 <p>
-                                    Diseñamos y desarrollamos plataformas digitales, ecommerce y experiencias híbridas
+                                    Diseñamos y desarrollamos plataformas
+                                    digitales, ecommerce y experiencias híbridas
                                     que convierten y fidelizan.
                                 </p>
                             </div>
@@ -1411,12 +1591,18 @@
                                 <li>Desarrollo web full-stack</li>
                             </ul>
                         </article>
-                        <article class="service-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.3s;">
+                        <article
+                            class="service-card"
+                            data-cursor-hover
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.3s"
+                        >
                             <span class="service-icon">🚀</span>
                             <div>
                                 <h3>Contenido & Growth</h3>
                                 <p>
-                                    Activamos campañas omnicanal que conectan historias poderosas con audiencias listas
+                                    Activamos campañas omnicanal que conectan
+                                    historias poderosas con audiencias listas
                                     para enamorarse de tu marca.
                                 </p>
                             </div>
@@ -1435,50 +1621,90 @@
                 <div class="container">
                     <div class="section-header" data-animate="fade-up">
                         <span class="section-label">Casos destacados</span>
-                        <h2 class="section-title font-serif">Resultados tangibles que transforman industrias.</h2>
+                        <h2 class="section-title font-serif">
+                            Resultados tangibles que transforman industrias.
+                        </h2>
                         <p class="section-description">
-                            Historias reales de marcas que confiaron en Weso para amplificar su impacto. Estrategia,
-                            creatividad y ejecución en sincronía.
+                            Historias reales de marcas que confiaron en Weso
+                            para amplificar su impacto. Estrategia, creatividad
+                            y ejecución en sincronía.
                         </p>
                     </div>
-                    <div class="cases-grid" data-animate="fade-up" style="--animate-delay: 0.12s;">
-                        <article class="case-card" data-image="tech" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.18s;">
+                    <div
+                        class="cases-grid"
+                        data-animate="fade-up"
+                        style="--animate-delay: 0.12s"
+                    >
+                        <article
+                            class="case-card"
+                            data-image="tech"
+                            data-cursor-hover
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.18s"
+                        >
                             <div class="case-content">
                                 <span class="case-label">SaaS · Serie B</span>
                                 <h3 class="case-title">Lumina OS</h3>
                                 <p class="case-description">
-                                    Rebranding integral, reposicionamiento global y ecosistema digital que elevó el MRR en
-                                    un 63% tras seis meses.
+                                    Rebranding integral, reposicionamiento
+                                    global y ecosistema digital que elevó el MRR
+                                    en un 63% tras seis meses.
                                 </p>
-                                <a href="#contacto" class="case-link" data-cursor-hover>
+                                <a
+                                    href="#contacto"
+                                    class="case-link"
+                                    data-cursor-hover
+                                >
                                     Ver cómo lo logramos
                                     <span aria-hidden="true">→</span>
                                 </a>
                             </div>
                         </article>
-                        <article class="case-card" data-image="finance" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.24s;">
+                        <article
+                            class="case-card"
+                            data-image="finance"
+                            data-cursor-hover
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.24s"
+                        >
                             <div class="case-content">
                                 <span class="case-label">Fintech · LATAM</span>
                                 <h3 class="case-title">Atlas Bank</h3>
                                 <p class="case-description">
-                                    Diseño de app, onboarding inteligente y campañas de adquisición que duplicaron la
+                                    Diseño de app, onboarding inteligente y
+                                    campañas de adquisición que duplicaron la
                                     base de usuarios activos.
                                 </p>
-                                <a href="#contacto" class="case-link" data-cursor-hover>
+                                <a
+                                    href="#contacto"
+                                    class="case-link"
+                                    data-cursor-hover
+                                >
                                     Descubrir el proyecto
                                     <span aria-hidden="true">→</span>
                                 </a>
                             </div>
                         </article>
-                        <article class="case-card" data-image="food" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.3s;">
+                        <article
+                            class="case-card"
+                            data-image="food"
+                            data-cursor-hover
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.3s"
+                        >
                             <div class="case-content">
                                 <span class="case-label">Consumo masivo</span>
                                 <h3 class="case-title">Terra Foods</h3>
                                 <p class="case-description">
-                                    Plataforma ecommerce, storytelling y programa de fidelización que generaron +140% en
-                                    ventas directas.
+                                    Plataforma ecommerce, storytelling y
+                                    programa de fidelización que generaron +140%
+                                    en ventas directas.
                                 </p>
-                                <a href="#contacto" class="case-link" data-cursor-hover>
+                                <a
+                                    href="#contacto"
+                                    class="case-link"
+                                    data-cursor-hover
+                                >
                                     Agenda una demo
                                     <span aria-hidden="true">→</span>
                                 </a>
@@ -1494,10 +1720,14 @@
                     <div data-animate="fade-up">
                         <div class="section-header">
                             <span class="section-label">Metodología Weso</span>
-                            <h2 class="section-title font-serif">Equipos integrados, velocidad y claridad total.</h2>
+                            <h2 class="section-title font-serif">
+                                Equipos integrados, velocidad y claridad total.
+                            </h2>
                             <p class="section-description">
-                                Operamos como un partner dentro de tu organización. Equipos ágiles, rituales semanales y
-                                métricas compartidas para acelerar decisiones y lanzar con precisión.
+                                Operamos como un partner dentro de tu
+                                organización. Equipos ágiles, rituales semanales
+                                y métricas compartidas para acelerar decisiones
+                                y lanzar con precisión.
                             </p>
                         </div>
                         <a
@@ -1506,37 +1736,69 @@
                             data-cursor-hover
                             data-cursor-pointer
                             data-animate="fade-up"
-                            style="--animate-delay: 0.12s;"
+                            style="--animate-delay: 0.12s"
                         >
                             Solicitar blueprint personalizado
                         </a>
                     </div>
-                    <ol class="process-list" data-animate="fade-up" style="--animate-delay: 0.18s;">
-                        <li class="process-step" data-step="01" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.22s;">
+                    <ol
+                        class="process-list"
+                        data-animate="fade-up"
+                        style="--animate-delay: 0.18s"
+                    >
+                        <li
+                            class="process-step"
+                            data-step="01"
+                            data-cursor-hover
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.22s"
+                        >
                             <h3>Descubrimiento inmersivo</h3>
                             <p>
-                                Workshops, entrevistas y research para mapear oportunidades, audiencias y diferenciales
+                                Workshops, entrevistas y research para mapear
+                                oportunidades, audiencias y diferenciales
                                 competitivos.
                             </p>
                         </li>
-                        <li class="process-step" data-step="02" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.28s;">
+                        <li
+                            class="process-step"
+                            data-step="02"
+                            data-cursor-hover
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.28s"
+                        >
                             <h3>Strategic Sprint</h3>
                             <p>
-                                Definimos narrativa, UX blueprint y roadmap creativo con foco en KPIs y quick wins
+                                Definimos narrativa, UX blueprint y roadmap
+                                creativo con foco en KPIs y quick wins
                                 accionables.
                             </p>
                         </li>
-                        <li class="process-step" data-step="03" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.34s;">
+                        <li
+                            class="process-step"
+                            data-step="03"
+                            data-cursor-hover
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.34s"
+                        >
                             <h3>Producción & activación</h3>
                             <p>
-                                Diseño, desarrollo y contenidos integrados listos para salir al mercado y medir impacto
+                                Diseño, desarrollo y contenidos integrados
+                                listos para salir al mercado y medir impacto
                                 desde el día cero.
                             </p>
                         </li>
-                        <li class="process-step" data-step="04" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.4s;">
+                        <li
+                            class="process-step"
+                            data-step="04"
+                            data-cursor-hover
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.4s"
+                        >
                             <h3>Optimización continua</h3>
                             <p>
-                                Iteramos con data en vivo, experimentos y automatizaciones para seguir escalando tu
+                                Iteramos con data en vivo, experimentos y
+                                automatizaciones para seguir escalando tu
                                 crecimiento.
                             </p>
                         </li>
@@ -1548,13 +1810,23 @@
             <section class="labs-section" id="labs">
                 <div class="container">
                     <div class="labs-wrapper" data-animate="fade-up">
-                        <div class="labs-text" data-animate="fade-up" style="--animate-delay: 0.08s;">
+                        <div
+                            class="labs-text space-y-4"
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.08s"
+                        >
                             <span class="section-label">Weso Labs</span>
-                            <h2 class="section-title font-serif">Innovación aplicada en IA, Web3 y experiencias inmersivas.</h2>
+                            <h2 class="section-title font-serif">
+                                Innovación aplicada en IA, Web3 y experiencias
+                                inmersivas.
+                            </h2>
                             <p>
-                                Nuestro laboratorio interno explora tecnologías emergentes y prototipa soluciones que luego
-                                llevamos a las marcas con las que trabajamos. Desde asistentes de IA entrenados en tus
-                                datos hasta activaciones phygital con realidad aumentada.
+                                Nuestro laboratorio interno explora tecnologías
+                                emergentes y prototipa soluciones que luego
+                                llevamos a las marcas con las que trabajamos.
+                                Desde asistentes de IA entrenados en tus datos
+                                hasta activaciones phygital con realidad
+                                aumentada.
                             </p>
                             <a
                                 href="#contacto"
@@ -1562,23 +1834,52 @@
                                 data-cursor-hover
                                 data-cursor-pointer
                                 data-animate="fade-up"
-                                style="--animate-delay: 0.16s;"
+                                style="--animate-delay: 0.16s"
                             >
                                 Probar un piloto con Weso Labs
                             </a>
                         </div>
-                        <div class="labs-highlights" data-animate="fade-up" style="--animate-delay: 0.18s;">
-                            <article class="labs-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.24s;">
+                        <div
+                            class="labs-highlights"
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.18s"
+                        >
+                            <article
+                                class="labs-card"
+                                data-cursor-hover
+                                data-animate="fade-up"
+                                style="--animate-delay: 0.24s"
+                            >
                                 <h4>Experiencias activadas por IA</h4>
-                                <p>Personalizamos cada punto del journey con contenido dinámico y asistentes conversacionales.</p>
+                                <p>
+                                    Personalizamos cada punto del journey con
+                                    contenido dinámico y asistentes
+                                    conversacionales.
+                                </p>
                             </article>
-                            <article class="labs-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.3s;">
+                            <article
+                                class="labs-card"
+                                data-cursor-hover
+                                data-animate="fade-up"
+                                style="--animate-delay: 0.3s"
+                            >
                                 <h4>Digital twins & eventos híbridos</h4>
-                                <p>Diseñamos entornos inmersivos para lanzamientos globales y comunidades 24/7.</p>
+                                <p>
+                                    Diseñamos entornos inmersivos para
+                                    lanzamientos globales y comunidades 24/7.
+                                </p>
                             </article>
-                            <article class="labs-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.36s;">
+                            <article
+                                class="labs-card"
+                                data-cursor-hover
+                                data-animate="fade-up"
+                                style="--animate-delay: 0.36s"
+                            >
                                 <h4>Growth automation</h4>
-                                <p>Automatizamos campañas, reporting y ciclos de iteración para escalar sin fricción.</p>
+                                <p>
+                                    Automatizamos campañas, reporting y ciclos
+                                    de iteración para escalar sin fricción.
+                                </p>
                             </article>
                         </div>
                     </div>
@@ -1590,49 +1891,95 @@
                 <div class="container">
                     <div class="section-header" data-animate="fade-up">
                         <span class="section-label">Testimonios</span>
-                        <h2 class="section-title font-serif">Historias de crecimiento contadas por nuestros socios.</h2>
+                        <h2 class="section-title font-serif">
+                            Historias de crecimiento contadas por nuestros
+                            socios.
+                        </h2>
                         <p class="section-description">
-                            Relaciones que se convierten en alianzas a largo plazo. Equipos que confían en nuestra forma
-                            de trabajar y en los resultados que entregamos.
+                            Relaciones que se convierten en alianzas a largo
+                            plazo. Equipos que confían en nuestra forma de
+                            trabajar y en los resultados que entregamos.
                         </p>
                     </div>
-                    <div class="testimonials-grid" data-animate="fade-up" style="--animate-delay: 0.12s;">
-                        <article class="testimonial-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.18s;">
+                    <div
+                        class="testimonials-grid"
+                        data-animate="fade-up"
+                        style="--animate-delay: 0.12s"
+                    >
+                        <article
+                            class="testimonial-card"
+                            data-cursor-hover
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.18s"
+                        >
                             <p class="testimonial-text">
-                                “Weso se incrustó en nuestro equipo con una velocidad increíble. En tres meses lanzamos un
-                                nuevo posicionamiento y una web que duplicó la generación de leads calificados.”
+                                “Weso se incrustó en nuestro equipo con una
+                                velocidad increíble. En tres meses lanzamos un
+                                nuevo posicionamiento y una web que duplicó la
+                                generación de leads calificados.”
                             </p>
                             <div class="testimonial-author">
-                                <img src="https://i.pravatar.cc/150?img=12" alt="Retrato de Carla Domínguez" loading="lazy" />
+                                <img
+                                    src="https://i.pravatar.cc/150?img=12"
+                                    alt="Retrato de Carla Domínguez"
+                                    loading="lazy"
+                                />
                                 <div>
                                     <strong>Carla Domínguez</strong>
                                     <span>VP Marketing · Lumina OS</span>
                                 </div>
                             </div>
                         </article>
-                        <article class="testimonial-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.24s;">
+                        <article
+                            class="testimonial-card"
+                            data-cursor-hover
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.24s"
+                        >
                             <p class="testimonial-text">
-                                “Desde el primer workshop entendieron nuestra visión. Integraron data, creatividad y
-                                performance para lanzar campañas globales que triplicaron el ROI.”
+                                “Desde el primer workshop entendieron nuestra
+                                visión. Integraron data, creatividad y
+                                performance para lanzar campañas globales que
+                                triplicaron el ROI.”
                             </p>
                             <div class="testimonial-author">
-                                <img src="https://i.pravatar.cc/150?img=25" alt="Retrato de Diego Ortega" loading="lazy" />
+                                <img
+                                    src="https://i.pravatar.cc/150?img=25"
+                                    alt="Retrato de Diego Ortega"
+                                    loading="lazy"
+                                />
                                 <div>
                                     <strong>Diego Ortega</strong>
-                                    <span>Chief Growth Officer · Atlas Bank</span>
+                                    <span
+                                        >Chief Growth Officer · Atlas Bank</span
+                                    >
                                 </div>
                             </div>
                         </article>
-                        <article class="testimonial-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.3s;">
+                        <article
+                            class="testimonial-card"
+                            data-cursor-hover
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.3s"
+                        >
                             <p class="testimonial-text">
-                                “Su enfoque colaborativo y la obsesión por el detalle nos permitieron acelerar la
-                                transformación digital y crear experiencias memorables para nuestros clientes.”
+                                “Su enfoque colaborativo y la obsesión por el
+                                detalle nos permitieron acelerar la
+                                transformación digital y crear experiencias
+                                memorables para nuestros clientes.”
                             </p>
                             <div class="testimonial-author">
-                                <img src="https://i.pravatar.cc/150?img=32" alt="Retrato de Fernanda Vélez" loading="lazy" />
+                                <img
+                                    src="https://i.pravatar.cc/150?img=32"
+                                    alt="Retrato de Fernanda Vélez"
+                                    loading="lazy"
+                                />
                                 <div>
                                     <strong>Fernanda Vélez</strong>
-                                    <span>Directora de Innovación · Terra Foods</span>
+                                    <span
+                                        >Directora de Innovación · Terra
+                                        Foods</span
+                                    >
                                 </div>
                             </div>
                         </article>
@@ -1645,45 +1992,88 @@
                 <div class="container">
                     <div class="section-header" data-animate="fade-up">
                         <span class="section-label">Insights</span>
-                        <h2 class="section-title font-serif">Ideas frescas para liderar el futuro de tu marca.</h2>
+                        <h2 class="section-title font-serif">
+                            Ideas frescas para liderar el futuro de tu marca.
+                        </h2>
                         <p class="section-description">
-                            Cada mes compartimos frameworks, guías y aprendizajes accionables para tu equipo. Suscríbete y
-                            recibe antes que nadie nuestras novedades.
+                            Cada mes compartimos frameworks, guías y
+                            aprendizajes accionables para tu equipo. Suscríbete
+                            y recibe antes que nadie nuestras novedades.
                         </p>
                     </div>
-                    <div class="insights-grid" data-animate="fade-up" style="--animate-delay: 0.12s;">
-                        <article class="insight-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.18s;">
+                    <div
+                        class="insights-grid"
+                        data-animate="fade-up"
+                        style="--animate-delay: 0.12s"
+                    >
+                        <article
+                            class="insight-card"
+                            data-cursor-hover
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.18s"
+                        >
                             <span class="insight-tag">Guía</span>
-                            <h3>Cómo construir una plataforma de marca con IA generativa</h3>
+                            <h3>
+                                Cómo construir una plataforma de marca con IA
+                                generativa
+                            </h3>
                             <p>
-                                De la investigación a la activación: procesos, herramientas y casos reales para crear
-                                universos de marca inteligentes.
+                                De la investigación a la activación: procesos,
+                                herramientas y casos reales para crear universos
+                                de marca inteligentes.
                             </p>
-                            <a href="#contacto" class="case-link" data-cursor-hover>
+                            <a
+                                href="#contacto"
+                                class="case-link"
+                                data-cursor-hover
+                            >
                                 Solicitar descarga
                                 <span aria-hidden="true">→</span>
                             </a>
                         </article>
-                        <article class="insight-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.24s;">
+                        <article
+                            class="insight-card"
+                            data-cursor-hover
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.24s"
+                        >
                             <span class="insight-tag">Framework</span>
-                            <h3>Playbook de lanzamientos de alto impacto en 45 días</h3>
+                            <h3>
+                                Playbook de lanzamientos de alto impacto en 45
+                                días
+                            </h3>
                             <p>
-                                Un paso a paso para coordinar equipos creativos, medios y tecnología con foco en métricas
+                                Un paso a paso para coordinar equipos creativos,
+                                medios y tecnología con foco en métricas
                                 comerciales.
                             </p>
-                            <a href="#contacto" class="case-link" data-cursor-hover>
+                            <a
+                                href="#contacto"
+                                class="case-link"
+                                data-cursor-hover
+                            >
                                 Recibir el playbook
                                 <span aria-hidden="true">→</span>
                             </a>
                         </article>
-                        <article class="insight-card" data-cursor-hover data-animate="fade-up" style="--animate-delay: 0.3s;">
+                        <article
+                            class="insight-card"
+                            data-cursor-hover
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.3s"
+                        >
                             <span class="insight-tag">Reporte</span>
                             <h3>El futuro del retail híbrido en LATAM</h3>
                             <p>
-                                Tendencias, datos y oportunidades para marcas que buscan combinar experiencias físicas y
+                                Tendencias, datos y oportunidades para marcas
+                                que buscan combinar experiencias físicas y
                                 digitales con éxito.
                             </p>
-                            <a href="#contacto" class="case-link" data-cursor-hover>
+                            <a
+                                href="#contacto"
+                                class="case-link"
+                                data-cursor-hover
+                            >
                                 Unirme a la lista
                                 <span aria-hidden="true">→</span>
                             </a>
@@ -1696,13 +2086,36 @@
             <section class="cta-section" id="contacto">
                 <div class="container">
                     <div class="cta-wrapper" data-animate="fade-up">
-                        <h2 class="font-serif" data-animate="fade-up" style="--animate-delay: 0.08s;">¿Listo para construir la próxima historia icónica?</h2>
-                        <p data-animate="fade-up" style="--animate-delay: 0.16s;">
-                            Cuéntanos sobre tu desafío y diseñaremos una propuesta a medida en menos de 48 horas. Somos
-                            el partner creativo y tecnológico que acompaña a equipos con ambición global.
+                        <h2
+                            class="font-serif"
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.08s"
+                        >
+                            ¿Listo para construir la próxima historia icónica?
+                        </h2>
+                        <p
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.16s"
+                        >
+                            Cuéntanos sobre tu desafío y diseñaremos una
+                            propuesta a medida en menos de 48 horas. Somos el
+                            partner creativo y tecnológico que acompaña a
+                            equipos con ambición global.
                         </p>
-                        <div class="cta-actions" data-animate="fade-up" style="--animate-delay: 0.24s;">
-                            <a href="mailto:contacto@weso.ar" class="btn" data-cursor-hover data-cursor-pointer data-animate="fade-up" style="--animate-delay: 0.28s;">contacto@weso.ar</a>
+                        <div
+                            class="cta-actions"
+                            data-animate="fade-up"
+                            style="--animate-delay: 0.24s"
+                        >
+                            <a
+                                href="mailto:contacto@weso.ar"
+                                class="btn"
+                                data-cursor-hover
+                                data-cursor-pointer
+                                data-animate="fade-up"
+                                style="--animate-delay: 0.28s"
+                                >contacto@weso.ar</a
+                            >
                             <a
                                 href="https://cal.com/nahuel-santillan"
                                 class="btn-outline"
@@ -1711,7 +2124,7 @@
                                 data-cursor-hover
                                 data-cursor-pointer
                                 data-animate="fade-up"
-                                style="--animate-delay: 0.32s;"
+                                style="--animate-delay: 0.32s"
                             >
                                 Reservar una llamada
                             </a>
@@ -1727,7 +2140,10 @@
                 <div class="footer-content" data-animate="fade-up">
                     <div class="footer-brand">
                         <img src="/image.png" alt="Logotipo de Weso" />
-                        <span>Agencia creativa y de producto digital con base en Mar del Plata y equipos distribuidos.</span>
+                        <span
+                            >Agencia creativa y de producto digital con base en
+                            Mar del Plata y equipos distribuidos.</span
+                        >
                     </div>
                     <div class="footer-links">
                         <strong>Explorar</strong>
@@ -1738,14 +2154,37 @@
                     </div>
                     <div class="footer-contact">
                         <strong>Conversemos</strong>
-                        <a href="mailto:contacto@weso.ar" data-cursor-hover>contacto@weso.ar</a>
-                        <a href="tel:+5492235123456" data-cursor-hover>+54 9 223 512 3456</a>
-                        <a href="https://www.instagram.com" target="_blank" rel="noreferrer" data-cursor-hover>Instagram</a>
-                        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" data-cursor-hover>LinkedIn</a>
+                        <a href="mailto:contacto@weso.ar" data-cursor-hover
+                            >contacto@weso.ar</a
+                        >
+                        <a href="tel:+5492235123456" data-cursor-hover
+                            >+54 9 223 512 3456</a
+                        >
+                        <a
+                            href="https://www.instagram.com"
+                            target="_blank"
+                            rel="noreferrer"
+                            data-cursor-hover
+                            >Instagram</a
+                        >
+                        <a
+                            href="https://www.linkedin.com"
+                            target="_blank"
+                            rel="noreferrer"
+                            data-cursor-hover
+                            >LinkedIn</a
+                        >
                     </div>
                 </div>
-                <div class="footer-bottom" data-animate="fade-up" style="--animate-delay: 0.12s;">
-                    <span>© 2025 Weso Studio. Todos los derechos reservados.</span>
+                <div
+                    class="footer-bottom"
+                    data-animate="fade-up"
+                    style="--animate-delay: 0.12s"
+                >
+                    <span
+                        >© 2025 Weso Studio. Todos los derechos
+                        reservados.</span
+                    >
                     <span>Hecho con creatividad y tecnología.</span>
                 </div>
             </div>
@@ -1755,10 +2194,17 @@
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 const cursor = document.querySelector(".cursor");
-                const hoverElements = document.querySelectorAll("[data-cursor-hover]");
-                const pointerElements = document.querySelectorAll("[data-cursor-pointer]");
-                const animatedElements = document.querySelectorAll("[data-animate]");
-                const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+                const hoverElements = document.querySelectorAll(
+                    "[data-cursor-hover]",
+                );
+                const pointerElements = document.querySelectorAll(
+                    "[data-cursor-pointer]",
+                );
+                const animatedElements =
+                    document.querySelectorAll("[data-animate]");
+                const prefersReducedMotion = window.matchMedia(
+                    "(prefers-reduced-motion: reduce)",
+                );
 
                 if (cursor) {
                     window.addEventListener("mousemove", (e) => {
@@ -1767,18 +2213,28 @@
                     });
 
                     hoverElements.forEach((el) => {
-                        el.addEventListener("mouseenter", () => cursor.classList.add("hover"));
-                        el.addEventListener("mouseleave", () => cursor.classList.remove("hover"));
+                        el.addEventListener("mouseenter", () =>
+                            cursor.classList.add("hover"),
+                        );
+                        el.addEventListener("mouseleave", () =>
+                            cursor.classList.remove("hover"),
+                        );
                     });
 
                     pointerElements.forEach((el) => {
-                        el.addEventListener("mouseenter", () => cursor.classList.add("pointer"));
-                        el.addEventListener("mouseleave", () => cursor.classList.remove("pointer"));
+                        el.addEventListener("mouseenter", () =>
+                            cursor.classList.add("pointer"),
+                        );
+                        el.addEventListener("mouseleave", () =>
+                            cursor.classList.remove("pointer"),
+                        );
                     });
                 }
 
                 if (prefersReducedMotion.matches) {
-                    animatedElements.forEach((el) => el.classList.add("is-visible"));
+                    animatedElements.forEach((el) =>
+                        el.classList.add("is-visible"),
+                    );
                 } else if (animatedElements.length) {
                     const observer = new IntersectionObserver(
                         (entries, obs) => {
