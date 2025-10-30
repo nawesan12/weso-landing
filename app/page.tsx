@@ -54,6 +54,36 @@ ${headerMarkup}
                         >Explorar portafolio</a
                     >
                 </div>
+                <div
+                    class="hero-stats"
+                    data-animate="fade-up"
+                    style="--animate-delay: 0.36s"
+                >
+                    <article class="hero-stat" data-cursor-hover>
+                        <strong>+120</strong>
+                        <span>lanzamientos regionales</span>
+                        <p>
+                            Productos, campañas y marcas que hoy lideran en
+                            LATAM y Europa.
+                        </p>
+                    </article>
+                    <article class="hero-stat" data-cursor-hover>
+                        <strong>15</strong>
+                        <span>industrias transformadas</span>
+                        <p>
+                            Fintech, salud, consumo masivo, educación,
+                            energía, turismo y más.
+                        </p>
+                    </article>
+                    <article class="hero-stat" data-cursor-hover>
+                        <strong>98%</strong>
+                        <span>de retención anual</span>
+                        <p>
+                            Nos convertimos en partners de confianza con
+                            equipos que comparten nuestra ambición.
+                        </p>
+                    </article>
+                </div>
             </div>
             <aside
                 class="hero-visual"
@@ -195,6 +225,61 @@ ${headerMarkup}
         </div>
     </section>
 
+    <!-- ===== RECOGNITIONS ===== -->
+    <section class="awards" aria-label="Reconocimientos globales de Weso">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-label">Reconocimientos</span>
+                <h2 class="section-title font-serif">
+                    Creatividad premiada por su impacto en resultados.
+                </h2>
+                <p class="section-description">
+                    Celebramos cada logro junto a nuestros clientes. Somos
+                    la agencia creativa latinoamericana con más premios en
+                    campañas data-driven durante los últimos dos años.
+                </p>
+            </div>
+            <div
+                class="awards-grid"
+                data-animate="fade-up"
+                style="--animate-delay: 0.12s"
+            >
+                <article class="award-card" data-cursor-hover>
+                    <span class="award-pill">Cannes Lions</span>
+                    <h3>Bronce · Experiencia de Marca</h3>
+                    <p>
+                        Caso Lumina OS: ecosistema omnicanal que elevó un 63%
+                        el MRR en seis meses.
+                    </p>
+                </article>
+                <article class="award-card" data-cursor-hover>
+                    <span class="award-pill">El Ojo de Iberoamérica</span>
+                    <h3>Oro · Innovación Digital</h3>
+                    <p>
+                        Activación inmersiva para Atlas Bank con asistentes de
+                        IA y data en tiempo real.
+                    </p>
+                </article>
+                <article class="award-card" data-cursor-hover>
+                    <span class="award-pill">Webby Awards</span>
+                    <h3>People's Voice · Mejor Web B2B</h3>
+                    <p>
+                        Plataforma de Terra Foods con storytelling interactivo
+                        y comunidad global.
+                    </p>
+                </article>
+                <article class="award-card" data-cursor-hover>
+                    <span class="award-pill">Effie LATAM</span>
+                    <h3>Plata · Campaña Integrada</h3>
+                    <p>
+                        Programa de fidelización para Nova Health con +210% en
+                        adquisición mensual.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <!-- ===== SERVICES ===== -->
     <section id="servicios">
         <div class="container">
@@ -280,6 +365,64 @@ ${headerMarkup}
                     </ul>
                 </article>
             </div>
+        </div>
+    </section>
+
+    <!-- ===== GLOBAL IMPACT ===== -->
+    <section class="global-impact" aria-labelledby="impacto-global">
+        <div class="container impact-grid">
+            <div data-animate="fade-up">
+                <span class="section-label" id="impacto-global"
+                    >Impacto global</span
+                >
+                <h2 class="section-title font-serif">
+                    Operamos como un hub creativo con alcance mundial.
+                </h2>
+                <p class="section-description">
+                    Desde Mar del Plata lideramos squads distribuidos en
+                    Buenos Aires, Ciudad de México, Madrid y São Paulo. Nos
+                    conectamos con tus equipos internos para lanzar ideas con
+                    la velocidad de una startup y la rigurosidad de una
+                    consultora.
+                </p>
+                <ul class="impact-list">
+                    <li data-cursor-hover>
+                        <strong>+20 países</strong> con campañas activas y
+                        soporte en tres husos horarios.
+                    </li>
+                    <li data-cursor-hover>
+                        <strong>5 idiomas</strong> para narrar tu historia sin
+                        perder consistencia cultural.
+                    </li>
+                    <li data-cursor-hover>
+                        <strong>Labs de innovación</strong> dedicados a IA
+                        generativa, Web3 y experiencias inmersivas.
+                    </li>
+                </ul>
+            </div>
+            <aside
+                class="impact-visual"
+                data-animate="fade-up"
+                style="--animate-delay: 0.12s"
+            >
+                <div class="impact-map" aria-hidden="true">
+                    <span class="halo halo-1"></span>
+                    <span class="halo halo-2"></span>
+                    <span class="halo halo-3"></span>
+                    <img src="/mapa-weso.svg" alt="Mapa del impacto global" />
+                </div>
+                <div class="impact-badges">
+                    <span class="impact-badge" data-cursor-hover>
+                        Partner HubSpot Solutions
+                    </span>
+                    <span class="impact-badge" data-cursor-hover>
+                        Miembros de Remote First Institute
+                    </span>
+                    <span class="impact-badge" data-cursor-hover>
+                        Certificados en Google Marketing Platform
+                    </span>
+                </div>
+            </aside>
         </div>
     </section>
 
