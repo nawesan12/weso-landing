@@ -18,6 +18,7 @@ const spaceGrotesk = Space_Grotesk({
 const dmSerif = DM_Serif_Display({
     subsets: ["latin"],
     display: "swap",
+    weight: "400",
     variable: "--font-dm-serif",
 });
 
