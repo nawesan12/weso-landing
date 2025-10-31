@@ -225,6 +225,101 @@ ${headerMarkup}
         </div>
     </section>
 
+    <!-- ===== PARTNERS ===== -->
+    <section class="partners" aria-label="Alianzas estratégicas de Weso">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-label">Colaboraciones</span>
+                <h2 class="section-title font-serif">
+                    Impulsamos innovación junto a partners expertos.
+                </h2>
+                <p class="section-description">
+                    Trabajamos en co-creación con compañías líderes para
+                    potenciar soluciones tecnológicas, creatividad
+                    aplicada y capacidad operativa en cada desafío.
+                </p>
+            </div>
+            <div
+                class="partners-grid"
+                data-animate="fade-up"
+                style="--animate-delay: 0.12s"
+            >
+                <article
+                    class="partner-card"
+                    data-cursor-hover
+                    data-animate="fade-up"
+                    style="--animate-delay: 0.16s"
+                >
+                    <h3>Rubicom</h3>
+                    <p>
+                        Tecnología financiera para diseñar productos
+                        digitales con datos en tiempo real.
+                    </p>
+                </article>
+                <article
+                    class="partner-card"
+                    data-cursor-hover
+                    data-animate="fade-up"
+                    style="--animate-delay: 0.2s"
+                >
+                    <h3>Finnegans</h3>
+                    <p>
+                        Plataformas de gestión cloud para acelerar la
+                        transformación de experiencias omnicanal.
+                    </p>
+                </article>
+                <article
+                    class="partner-card"
+                    data-cursor-hover
+                    data-animate="fade-up"
+                    style="--animate-delay: 0.24s"
+                >
+                    <h3>Animal Feed</h3>
+                    <p>
+                        Innovación agroalimentaria con foco en
+                        sostenibilidad y trazabilidad de origen.
+                    </p>
+                </article>
+                <article
+                    class="partner-card"
+                    data-cursor-hover
+                    data-animate="fade-up"
+                    style="--animate-delay: 0.28s"
+                >
+                    <h3>Urban Pulse</h3>
+                    <p>
+                        Especialistas en experiencias inmersivas para
+                        eventos híbridos y lanzamientos globales.
+                    </p>
+                </article>
+                <article
+                    class="partner-card"
+                    data-cursor-hover
+                    data-animate="fade-up"
+                    style="--animate-delay: 0.32s"
+                >
+                    <h3>DataSouth</h3>
+                    <p>
+                        Infraestructura analítica que integra modelos de
+                        IA y tableros inteligentes para growth.
+                    </p>
+                </article>
+                <article
+                    class="partner-card"
+                    data-cursor-hover
+                    data-animate="fade-up"
+                    style="--animate-delay: 0.36s"
+                >
+                    <h3>Atlantic Studio</h3>
+                    <p>
+                        Producción audiovisual premium para contenidos de
+                        alto impacto y distribución multiformato.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <!-- ===== RECOGNITIONS ===== -->
     <section class="awards" aria-label="Reconocimientos globales de Weso">
         <div class="container">
